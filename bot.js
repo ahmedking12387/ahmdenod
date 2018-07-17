@@ -14,7 +14,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     console.log(`in ${client.guilds.size} servers `)
     console.log(`[xd] ${client.users.size}`)
-    client.user.setStatus("idle")
+    client.user.setStatus("Online")
 });
 //by ,$ ReBeL ط، , ًں”•#4777 'CODES SERVER'
 const prefix = "5"
