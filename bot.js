@@ -309,7 +309,7 @@ client.on('message', msg => {
 client.on('message', message => {
 	var prefix = "+";
   if (!message.content.startsWith(prefix)) return;
-  const verifed = ["389090790984515594"];
+  const verifed = ["279194403564814336"];
 if (message.content.startsWith(prefix + 'owner')) {
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**   جا صاحب البوت هنا الكل يوقف**` + `✅`)
 } else {
