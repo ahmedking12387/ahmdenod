@@ -309,7 +309,7 @@ client.on('message', msg => {
 client.on('message', message => {
 	var prefix = "+";
   if (!message.content.startsWith(prefix)) return;
-  const verifed = ["279194403564814336"];
+  const verifed = ["466121114725253122"];
 if (message.content.startsWith(prefix + 'owner')) {
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**   جا صاحب البوت هنا الكل يوقف**` + `✅`)
 } else {
@@ -345,24 +345,24 @@ client.on('message', message => {
       if (!message.content.startsWith(prefix)) return;
       var args = message.content.split(' ').slice(1);
       var argresult = args.join(' ');
-      if (message.author.id == 279194403564814336) return;
+      if (message.author.id == 466121114725253122) return;
 
 
     if (message.content.startsWith(prefix + 'playing')) {
-    if (message.author.id !== '279194403564814336') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '466121114725253122') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
     client.user.setGame(argresult);
         message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
     } else
 
 
     if (message.content.startsWith(prefix + 'streem')) {
-    if (message.author.id !== '279194403564814336') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '466121114725253122') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
     client.user.setGame(argresult, "http://twitch.tv/HP");
         message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
     } else
 
     if (message.content.startsWith(prefix + 'setname')) {
-    if (message.author.id !== '279194403564814336') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '466121114725253122') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
       client.user.setUsername(argresult).then
           message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
       return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
