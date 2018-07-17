@@ -40,8 +40,7 @@ client.on("message", message => {
 
 ('+id ' , 'لعرض معلوماتك') 
 ('+server' , 'لمعلومات سيرفر') 
-('رابط السيرفر الي تكتب الاوامر بيه' ,' رابط  ')
-('')
+(`+رابط السيرفر الي تكتب الاوامر بيه' ,' رابط `)
 ('+roles' ,'لاضهار رتب  سيرفر بالترتيب')
 ('+infobot ' ,'معلومات البوت')
 ('+bc ' , 'لارسال رساله جماعية')
@@ -225,6 +224,20 @@ client.on('message', message =>{
         message.channel.send(role.join("\n"));
     }
 });
+
+
+client.on('message', message => {
+    if (message.content.startsWith("+infobot")) {
+      message.channel.send({
+ embed: new Discord.RichEmbed() 
+    .setColor('RED')
+    .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
+         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+        .addField('**وقت الاقلاع⌚**', timeCon(process.uptime()), true)
+        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
+     })
+    }
+  });
 
 
 client.login(process.env.BOT_TOKEN);
