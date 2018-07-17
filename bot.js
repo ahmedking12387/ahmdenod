@@ -41,7 +41,7 @@ client.on("message", message => {
 ('+id ' , 'لعرض معلوماتك') 
 ('+server' , 'لمعلومات سيرفر') 
 ('رابط السيرفر الي تكتب الاوامر بيه' ,' رابط  ')
-('+invite   ' ,' لاضافه البوت   ')
+('')
 ('+roles' ,'لاضهار رتب  سيرفر بالترتيب')
 ('+infobot ' ,'معلومات البوت')
 ('+bc ' , 'لارسال رساله جماعية')
@@ -208,6 +208,21 @@ client.on('message', message => {
 ---------------------
 **`)
       message.author.sendEmbed(Embed11)
+    }
+});
+
+
+client.on('message', message =>{
+    if (message.author.bot) return;
+    if(message.content == "+roles"){
+        var roles = '',
+        ros=message.guild.roles.size,
+        role = [];
+        for(let i =0;i<ros;i++){
+            if(message.guild.roles.array()[i].id !== message.guild.id){
+  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
+        }}
+        message.channel.send(role.join("\n"));
     }
 });
 
