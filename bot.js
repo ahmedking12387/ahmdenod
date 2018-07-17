@@ -318,4 +318,25 @@ if( verifed.some(word => message.author.id.includes(word)) ) {    return message
 }
 });
 
+
+	 client.on("message", (message) => {
+    if (message.content.startsWith("+ban ")) {
+      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('⚠ ماعندك الصلاحيات');
+        var member= message.mentions.members.first();
+        member.ban().then((member) => {
+            message.channel.send(member.displayName + " لقد تم طرده بنجاح 👋 ");
+        }).catch(() => {
+            message.channel.send("❌ هناك خطاء حاول مره أخرى❌ ");
+        });
+    }
+});
+client.on('message', ( message ) => {
+    if( message.content == '+unbans' ){
+        if( !message.member.hasPermission( 'ADMINISTRATOR' ) ) return message.reply(' لا تملك الصلاحيات لفعل هذا الأمر');
+        message.guild.fetchBans().forEach(u=>message.guild.unban(u));
+        message.reply(' تم.');
+    }
+});
+
+
 client.login(process.env.BOT_TOKEN);
