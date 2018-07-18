@@ -492,5 +492,28 @@ client.on('message', message => {
 });
 
 
+client.on('message', msg => {
+	const prefix = '+'
+ if (msg.content.startsWith(prefix + 'calculator')) {
+    let args = msg.content.split(" ").slice(1);
+        const question = args.join(' ');
+    if (args.length < 1) {
+        msg.reply('Specify a equation, please.');
+} else {    let answer;
+    try {
+        answer = math.eval(question);
+    } catch (err) {
+        msg.reply(`Error: ${err}`);
+    }
+
+    const embed = new Discord.RichEmbed()
+    .addField("**السؤال**: ",`**${question}**`, true)
+    .addField("**الناتج**: ",`**${answer}**`, true)
+    .setFooter("S Bot حاسبه")
+    msg.channel.send(embed)
+    }
+};
+});	
+
 
 client.login(process.env.BOT_TOKEN);
