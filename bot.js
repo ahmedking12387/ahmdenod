@@ -499,4 +499,6 @@ client.on('voiceStateUpdate', (old, now) => {
   if (!size) return channel.setName(`Voice Online: ${currentSize}`);
   if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
 });
+
+
 client.login(process.env.BOT_TOKEN);
