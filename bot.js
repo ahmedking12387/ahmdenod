@@ -4,7 +4,7 @@ const prefix = '+'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
+client.user.setGame(`+help| ip: FlixMC.tk`,"http://twitch.tv/A_K")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -928,19 +928,6 @@ client.on("guildMemberAdd", member => {
 :crown:اسم العضو  ${member}:crown:  
 انت العضو رقم ${member.guild.memberCount} `) 
 }).catch(console.error)
-});
-
-
-
-client.on('message', message => {
-if (message.content.startsWith("+kick")) {
-    var mention = message.mentions.member.first();
-    if(!mention) return message.channel.send("u want to ping who u want to kick");
-
-    mention.kick("By: " + message.author.tag);
-    
-    message.channel.send("got kicked : " + mention.tag);
-};
 });
 
 
