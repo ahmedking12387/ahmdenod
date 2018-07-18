@@ -698,4 +698,24 @@ if (message.content.startsWith("+kick")) {
 });
 
 
+const dot = new Discord.Client();
+client.on('message', message => {
+    
+    if (message.content === "V") {
+        setInterval(function(){
+        message.edit('**✱➼**')    
+        message.edit('**✱➼ F**')    
+        message.edit('**✱➼ Fl**')
+        message.edit('**✱➼ Flix**')
+        message.edit('**✱➼ FlixM**')
+        message.edit('**✱➼ FlixMC**')
+        message.edit('**✱➼ FlixMC Bo**')
+        message.edit('**✱➼ FlixMC Bot.**')
+    
+        }, 1000)
+    }
+    
+})
+
+
 client.login(process.env.BOT_TOKEN);
