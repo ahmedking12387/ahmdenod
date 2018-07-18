@@ -1014,8 +1014,8 @@ if (command == "embed") {
 
 
 client.on('ready', function(){
-    var ms = 10 ;
-    var setGame = ['F','Fl','Fli','Flix','FlixM','FlixMC','FlixMC Bot','ip:FlicMc.tk',' +help ',' (:','):','/:','(: '];
+    var ms = 1000 ;
+    var setGame = ['F','Fl','Fli','Flix','FlixM','FlixMC','FlixMC Bot','ip:FlicMc.tk',' +help ','(:'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -1026,7 +1026,7 @@ client.on('ready', function(){
             j = -1;
         }
         i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/D.JPEI`);
+        client.user.setGame(setGame[i],`http://www.twitch.tv/A_K`);
     }, ms);
 
 });
