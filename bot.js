@@ -659,4 +659,10 @@ var unmuteembeddm = new Discord.RichEmbed()
 });
 
 
+client.on('message' , message => {
+    if(message.content === 'سبايركس') {
+    message.channel.send(`تاج راسك `);
+    }
+     });
+
 client.login(process.env.BOT_TOKEN);
