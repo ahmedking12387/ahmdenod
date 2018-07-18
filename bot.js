@@ -991,43 +991,34 @@ client.on('message', message => {
 
 
 
-const Client = require('discord.js');
+
 
 client.on('message', message => {
-    let args = message.content.split(' ').slice(1);
-if(message.content.split(' ')[0] == 'لون'){
-if (message.channel.id !== "451448466644795392") return;
-     const embedd = new Discord.RichEmbed()
-.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-.setDescription(`**There's No Color With This Number ** ❌ `)
-.setColor(`ff0000`)
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
 
-if(!isNaN(args) && args.length > 0)
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
 
+  let args = message.content.split(" ").slice(1);
 
- var a = message.guild.roles.find("name",`${args}`)
-          if(!a)return;
-          if (a.name > 250 || a.name < 1) return;
-const embed = new Discord.RichEmbed()
-              
-.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-.setDescription(`**Color Changed Successfully** ✅ `)
-
-.setColor(`${a.hexColor}`)
-message.channel.sendEmbed(embed);
-    if (!args)return;
-setInterval(function(){})
-            let count = 0;
-            let ecount = 0;
-  for(let x = 1; x < 201; x++){
-     
-      message.member.removeRole(message.guild.roles.find("name",`${x}`))
-    
-      }
-          message.member.addRole(message.guild.roles.find("name",`${args}`));
+// -say
+  if (command === "say") {
+          message.delete()
+    message.channel.sendMessage(args.join(" ")).catch(console.error);
+  }
   
-      
-}
+ 
+
+if (command == "embed") {
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor(0x23b2d6)
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
+
+
 });
 
 client.login(process.env.BOT_TOKEN);
