@@ -1020,9 +1020,9 @@ if (command == "embed") {
           if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
           if (!args[1]) return msg.reply('اكتب السبب')
           //غير اسم الروم او سوي روم بذا الاسم 
-          if (msg.guild.channels.find('name', 'warns')) {
+          if (msg.guild.channels.find('name', 'log')) {
             //اذا غيرت فوق غير هنا كمان 
-            msg.guild.channels.find('name', 'warns').send(`
+            msg.guild.channels.find('name', 'log').send(`
           تم اعطائك تنبيه : ${msg.mentions.members.first()}
           لأنك قمت بما يلي
           ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
@@ -1051,5 +1051,34 @@ client.on("guildMemberRemove", function(member) {
         .setTimestamp()
         return wc.sendEmbed(embed);
 });
+
+
+client.on('message', message => {
+    
+    if (message.content === "V") {
+        setInterval(function(){
+        message.edit('**✱➼**')    
+        message.edit('**✱➼ V**')    
+        message.edit('**✱➼ VI**')
+        message.edit('**✱➼ VIG**')
+        message.edit('**✱➼ VIGE**')
+        message.edit('**✱➼ VIGET**')
+        message.edit('**✱➼ VIGETA**')
+        message.edit('**✱➼ VIGETA.**')
+    
+        }, 1000)
+    }
+    
+});
+
+
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('460054316712067090');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`Voice Online: ${currentSize}`);
+  if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
+});
+
 
 client.login(process.env.BOT_TOKEN);
