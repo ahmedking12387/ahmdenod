@@ -716,14 +716,34 @@ client.on('message', message => {
 });
 
 
-client.on("message", async function(message)  {
-let voiceMembers = message.guild.channels.get('469009059073228811');
-if(message.content.startsWith(prefix + "voice")) {
-    voiceMembers.sendMessage(`**الاعضاء المتواجدون حاليا : ${message.guild.members.filter(member => member.voiceChannel).size}**`);
-    voiceMembers.sendMessage('```\n'+message.guild.members.filter(member => member.voiceChannel).map(m => m.user.tag).join('\n') + '```');
-    
-}
-});
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  if(!message.channel.guild) return;
+  if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
+  if (message.mentions.users.size < 1) return;
 
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+ 
+
+if (command == "+warn") {
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor(0x831f18)
+    message.channel.sendEmbed(say);
+    client.channels.get("451448472671879169").send(`**=========================================**`)
+    client.channels.get("451448472671879169").send(`**New Warn !**`)
+    client.channels.get("451448472671879169").send({embed : say})
+    client.channels.get("451448472671879169").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
+    client.channels.get("451448472671879169").send(`**In Channel : ${message.channel}**`)
+    message.delete();
+  }
+
+
+});
 
 client.login(process.env.BOT_TOKEN);
