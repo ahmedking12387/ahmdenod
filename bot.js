@@ -1053,23 +1053,7 @@ client.on("guildMemberRemove", function(member) {
 });
 
 
-client.on('message', message => {
-    
-    if (message.content === "V") {
-        setInterval(function(){
-        message.edit('**✱➼**')    
-        message.edit('**✱➼ V**')    
-        message.edit('**✱➼ VI**')
-        message.edit('**✱➼ VIG**')
-        message.edit('**✱➼ VIGE**')
-        message.edit('**✱➼ VIGET**')
-        message.edit('**✱➼ VIGETA**')
-        message.edit('**✱➼ VIGETA.**')
-    
-        }, 1000)
-    }
-    
-});
+
 
 
 client.on('voiceStateUpdate', (old, now) => {
@@ -1078,6 +1062,20 @@ client.on('voiceStateUpdate', (old, now) => {
   const size = channel.name.match(/\[\s(\d+)\s\]/);
   if (!size) return channel.setName(`Voice Online: ${currentSize}`);
   if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
+});
+
+
+client.on("guildMemberAdd", function(member) {
+    const wc = member.guild.channels.find("name", "welcome")
+        const embed = new Discord.RichEmbed()
+        .setColor('B90C0C')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+ .setDescription('***يا مرحبا وسهلاً بضيف لفانا، يزهي بك الأدب العربي وينثر لك أزهار يسقيك من نبع المشاعر وفانا، لين الهلا تثمر على غصونك أطيار. ***')
+.setThumbnail(member.avatarURL)
+  .setImage('https://www.askideas.com/media/13/Welcome-Deers-Sign.jpg')
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+        
 });
 
 
