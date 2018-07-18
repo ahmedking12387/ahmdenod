@@ -698,24 +698,32 @@ if (message.content.startsWith("+kick")) {
 });
 
 
-const dot = new Discord.Client();
 client.on('message', message => {
-    
-    if (message.content === "V") {
-        setInterval(function(){
-        message.edit('**✱➼**')    
-        message.edit('**✱➼ F**')    
-        message.edit('**✱➼ Fl**')
-        message.edit('**✱➼ Flix**')
-        message.edit('**✱➼ FlixM**')
-        message.edit('**✱➼ FlixMC**')
-        message.edit('**✱➼ FlixMC Bo**')
-        message.edit('**✱➼ FlixMC Bot.**')
-    
-        }, 1000)
+    if (message.content.startsWith("+avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var Hamada = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${Hamada.avatarURL}`)
+      message.channel.sendEmbed(embed);
     }
+});
+
+
+client.on("message", async function(message)  {
+let voiceMembers = message.guild.channels.get('469009059073228811');
+if(message.content.startsWith(prefix + "voice")) {
+    voiceMembers.sendMessage(`**الاعضاء المتواجدون حاليا : ${message.guild.members.filter(member => member.voiceChannel).size}**`);
+    voiceMembers.sendMessage('```\n'+message.guild.members.filter(member => member.voiceChannel).map(m => m.user.tag).join('\n') + '```');
     
-})
+}
+});
 
 
 client.login(process.env.BOT_TOKEN);
