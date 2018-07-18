@@ -982,15 +982,6 @@ client.on('message', message => {
 });
 
 
-```client.on('message', msg => {//msg
-    if (msg.content === 'الوان') {
-      if (msg.channel.id !== "ايدي الروم اللي تبي يستقبل الامر منه") return;
-      msg.channel.send({file : "https://d.top4top.net/p_925trmdy1.png"})
-    }
-  });;
-
-
-
 
 
 client.on('message', message => {
@@ -1020,5 +1011,25 @@ if (command == "embed") {
 
 
 });
+
+
+client.on('ready', function(){
+    var ms = 10000 ;
+    var setGame = [' F 1 ','Fl 2 | Fli 3','Flix 4 ','FlixMC 5','FlixMC Bot. 6'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/D.JPEI`);
+    }, ms);
+
+});
+
 
 client.login(process.env.BOT_TOKEN);
