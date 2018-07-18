@@ -744,7 +744,7 @@ client.on('message', message => {
   
  
 
-if (command == "+warn") {
+if (command == "warn") {
     let say = new Discord.RichEmbed()
     .setDescription(args.join("  "))
     .setColor(0x831f18)
@@ -760,5 +760,6 @@ if (command == "+warn") {
 
 });
 	
+
 
 client.login(process.env.BOT_TOKEN);
