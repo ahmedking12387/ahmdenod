@@ -1014,7 +1014,7 @@ if (command == "embed") {
 
 
 client.on('ready', function(){
-    var ms = 1000 ;
+    var ms = 10 ;
     var setGame = ['F','Fl','Fli','Flix','FlixM','FlixMC','FlixMC Bot','ip:FlicMc.tk',' +help ','(:'];
     var i = -1;
     var j = 0;
