@@ -1061,7 +1061,7 @@ client.on('voiceStateUpdate', (old, now) => {
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
   const size = channel.name.match(/\[\s(\d+)\s\]/);
   if (!size) return channel.setName(`Voice Online: ${currentSize}`);
-  if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
+  if (currentSize !== size) channel.setName(`ᶠˡˣVoice Online♚: ${currentSize}`);
 });
 
 
@@ -1070,9 +1070,9 @@ client.on("guildMemberAdd", function(member) {
         const embed = new Discord.RichEmbed()
         .setColor('B90C0C')
         .setAuthor(member.user.tag, member.user.avatarURL)
- .setDescription('***يا مرحبا وسهلاً بضيف لفانا، يزهي بك الأدب العربي وينثر لك أزهار يسقيك من نبع المشاعر وفانا، لين الهلا تثمر على غصونك أطيار. ***')
+ .setDescription('***اهلا وسهلا بك (: .***')
 .setThumbnail(member.avatarURL)
-  .setImage('https://www.askideas.com/media/13/Welcome-Deers-Sign.jpg')
+  .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPwxGMzV5RYVwz3Gb2TLMVm42tHPl9O8RlN5UozYGQc8fMnLuXZw')
         .setTimestamp()
         return wc.sendEmbed(embed);
         
