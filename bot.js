@@ -1032,4 +1032,24 @@ if (command == "embed") {
 });
 
 
+client.on("guildMemberAdd", function(member) {
+    const wc = member.guild.channels.find("name", "welcome")
+        const embed = new Discord.RichEmbed()
+        .setColor('00FF01')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+        .setFooter("اهلا وسهلا فيك ومرحبتين منور  ")
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+});
+
+client.on("guildMemberRemove", function(member) {
+    const wc = member.guild.channels.find("name", "welcome")
+        const embed = new Discord.RichEmbed()
+        .setColor('FF0000')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+        .setFooter("خرج عضو انشالله يكون استمتع معنا ")
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+});
+
 client.login(process.env.BOT_TOKEN);
