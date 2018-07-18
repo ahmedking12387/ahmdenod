@@ -380,5 +380,99 @@ client.on('message', message => {
 
 
 
+client.on('message', message => {
+
+if (message.author.bot) return;
+    if (message.content === "+rmutechannel") {
+                        if(!message.channel.guild) return message.reply(' This command only for servers');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("تم تقفيل الشات ✅ ")
+           });
+             }
+if (message.content === "+runmutechannel") {
+    if(!message.channel.guild) return message.reply(' This command only for servers');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("تم فتح الشات✅")
+           });
+             }
+
+
+
+});
+
+
+client.on('message', message => {
+  if (message.content.startsWith ("+invites")) {
+   if(!message.channel.guild) return message.reply('** This command only for servers **');
+       var mentionned = message.mentions.users.first();
+      var os;
+    if(mentionned){
+        var os = mentionned.id;
+    } else {
+        var os = message.author.id;
+        
+    }
+        var oss;
+    if(mentionned){
+        var oss = mentionned;
+    } else {
+        var oss = message.author;
+        
+    }
+message.guild.fetchInvites()
+.then(invites =>{
+if(!invites.find(invite => invite.inviter.id === `${os}`)) return message.channel.send(`**${oss.username}, Does't Have Invites :x:**`);
+message.channel.send(`**__${invites.find(invite => invite.inviter.id === `${os}`).uses}__ Member Joined By ${oss.username} !** :chart_with_upwards_trend: `)
+
+})
+
+
+
+}
+
+});
+
+
+client.on("message", message => {
+    const command = message.content.split(" ")[0];
+
+    if(command == prefix+"vc"){
+
+        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('you do not have permission to perform this action!');
+        }
+
+        var member = message.guild.members.get(message.mentions.users.array()[0].id);
+        if(!message.mentions.users){
+            message.reply("please mention the member")
+            return;
+        }
+
+    if(!member.voiceChannel){
+    message.reply("i can't include voice channel for member!")
+    return;
+    }
+              message.guild.createChannel('voicekick', 'voice').then(c => {
+                member.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log)
+        
+
+
+    
+      });
+     });
+    }
+});
+
 
 client.login(process.env.BOT_TOKEN);
