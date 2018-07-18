@@ -660,9 +660,30 @@ var unmuteembeddm = new Discord.RichEmbed()
 
 
 client.on('message' , message => {
-    if(message.content === 'سبايركس') {
-    message.channel.send(`تاج راسك `);
+    if(message.content === 'ip') {
+    message.channel.send(`FlixMC.tk `);
     }
      });
+
+
+client.on('message' , message => {
+    if(message.content === 'اي سيرفر ') {
+    message.channel.send(`FlixMC.tk`);
+    }
+     });
+
+
+client.on('message' , message => {
+    if(message.content === 'سيرفر') {
+    message.channel.send(`FlixMC.tk`);
+    }
+     });
+
+client.on('message' , message => {
+    if(message.content === 'اي بي ') {
+    message.channel.send(`FlixMC.tk`);
+    }
+     });
+
 
 client.login(process.env.BOT_TOKEN);
