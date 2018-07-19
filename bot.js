@@ -4,7 +4,7 @@ const prefix = '+'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`+help | Ip : FlixMC.tk  .`,"http://twitch.tv/A_K")
+client.user.setGame(`+help |   IP:FlixMC.tk  .`,"http://twitch.tv/A_K")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -509,7 +509,7 @@ client.on('message', msg => {
     const embed = new Discord.RichEmbed()
     .addField("**السؤال**: ",`**${question}**`, true)
     .addField("**الناتج**: ",`**${answer}**`, true)
-    .setFooter("S Bot حاسبه")
+    .setFooter("A_K حاسبه")
     msg.channel.send(embed)
     }
 };
@@ -984,33 +984,6 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-// -say
-  if (command === "say") {
-          message.delete()
-    message.channel.sendMessage(args.join(" ")).catch(console.error);
-  }
-  
- 
-
-if (command == "embed") {
-    let say = new Discord.RichEmbed()
-    .setDescription(args.join("  "))
-    .setColor(0x23b2d6)
-    message.channel.sendEmbed(say);
-    message.delete();
-  }
-
-
-});
 
 
       client.on('message', msg => { 
@@ -1020,9 +993,9 @@ if (command == "embed") {
           if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
           if (!args[1]) return msg.reply('اكتب السبب')
           //غير اسم الروم او سوي روم بذا الاسم 
-          if (msg.guild.channels.find('name', 'log')) {
+          if (msg.guild.channels.find('name', '')) {
             //اذا غيرت فوق غير هنا كمان 
-            msg.guild.channels.find('name', 'log').send(`
+            msg.guild.channels.find('name', '').send(`
           تم اعطائك تنبيه : ${msg.mentions.members.first()}
           لأنك قمت بما يلي
           ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
@@ -1060,8 +1033,8 @@ client.on('voiceStateUpdate', (old, now) => {
   const channel = client.channels.get('460054316712067090');
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
   const size = channel.name.match(/\[\s(\d+)\s\]/);
-  if (!size) return channel.setName(`Voice Online: ${currentSize}`);
-  if (currentSize !== size) channel.setName(`ᶠˡˣVoice Online♚: ${currentSize}`);
+  if (!size) return channel.setName(`#FlixMC Voice: ${currentSize}`);
+  if (currentSize !== size) channel.setName(`#FlixMC Voice:${currentSize}`);
 });
 
 
@@ -1077,6 +1050,12 @@ client.on("guildMemberAdd", function(member) {
         return wc.sendEmbed(embed);
         
 });
+
+
+
+    
+client.on('message', message => {       var prefix = "+";       if(message.content.startsWith(prefix + 'move all')) {        if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');          if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");       if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)        var author = message.member.voiceChannelID;        var m = message.guild.members.filter(m=>m.voiceChannel)        message.guild.members.filter(m=>m.voiceChannel).forEach(m => {        m.setVoiceChannel(author)        })        message.channel.send(`**تم سحب جميع الأعضاء إليك**`)                      }          });
+
 
 
 client.login(process.env.BOT_TOKEN);
