@@ -285,8 +285,7 @@ client.on("message", message => {
     var prefix = "+";
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
- if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | *** ⚠ لا يوجد لك مانج ماسج ***');
-        var msg;
+ if (!args[1]) {
                                 let x5bz1 = new Discord.RichEmbed()
                                 .setDescription("+clear <number>")
                                 .setColor("#0000FF")
@@ -304,6 +303,7 @@ client.on("message", message => {
                             }
                           }
 });
+
 
 
 client.on('message', message => {
