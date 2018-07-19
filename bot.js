@@ -1101,17 +1101,23 @@ client.on('message', message => {
          });
 
 
-bot.on("message", message => {
-    var prefix = "+"
-    if (!message.content.startsWith(prefix)) return;
-      let command = message.content.split(" ")[0];
-      command = command.slice(prefix.length);
-        if(command === "mcskin") {
-                const args = message.content.split(" ").slice(1).join(" ")
-        if (!args) return message.channel.send("** Type your skin name **");
-        const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
-    message.channel.send(image)
+client.on('ready', function(){
+    var ms = 100 ;
+    var setGame = ['F','Fl','Fli','Flix','FlixM','FlixMC','FlixMC Bot','ip:FlicMc.tk',' +help ','(:'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
         }
-    });
+        if( i == (setGame.length)-1 ){
+            j = -1;
+		
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/A_K`);
+    }, ms);
+
+});
 
 client.login(process.env.BOT_TOKEN);
