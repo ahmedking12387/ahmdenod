@@ -1082,6 +1082,90 @@ client.on('message', message => {
 
 
 
+client.on('message', msg => {
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(prefix)) return;
+  let command = msg.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = msg.content.split(" ").slice(1);
 
+    if(command === "purge") {
+        const emoji = client.emojis.find("name", "wastebasket")
+    let textxt = args.slice(0).join("");
+    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
+    if (textxt == "") {
+    msg.channel.send("ضع عددا من الرسائل التي تريد مسحها");
+} else {
+    msg.delete().then
+    msg.delete().then
+    msg.channel.bulkDelete(textxt);
+    msg.channel.send(`${emoji} Deleted ` + "`" + textxt + "` messages");
+        }    
+    }
+}
+});
+
+               client.on('message', message => {
+                    var prefix = "++";
+
+           if (message.content.startsWith(prefix + "id")) {
+                     if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات ❌`);
+
+                message.guild.fetchInvites().then(invs => {
+      let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+      let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      var moment = require('moment');
+      var args = message.content.split(" ").slice(1);
+let user = message.mentions.users.first();
+var men = message.mentions.users.first();
+ var heg;
+ if(men) {
+     heg = men
+ } else {
+     heg = message.author
+ }
+var mentionned = message.mentions.members.first();
+  var h;
+ if(mentionned) {
+     h = mentionned
+ } else {
+     h = message.member
+ }
+        moment.locale('ar-TN');
+      var id = new  Discord.RichEmbed()
+       
+    .setColor("#0a0909")
+    .setAuthor(message.author.username, message.author.avatarURL) 
+.addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+.addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
+.addField(': عدد الدعوات', inviteCount,false)
+.setFooter("-")  
+    message.channel.sendEmbed(id);
+})
+}
+    
+
+         
+     });
+
+ client.on('message', message => {
+    if (message.content === (prefix) + "icon") {
+    var ms =60000;
+    var Icon = [`https://cdn.discordapp.com/attachments/338569764379033601/469473414176964658/flix_logo.png`,`https://cdn.discordapp.com/attachments/338569764379033601/469473353883975690/flixlogo9.png`,`https://cdn.discordapp.com/attachments/338569764379033601/469473355590795274/flixlogo094.png`,`image link here`];
+    var i = -1;
+    var j = 0; 
+   setInterval(function (){
+       if( i == -1 ){
+            j = 1;
+        }
+        if( i == (Icon.length)-1 ){
+            j = -1;
+        }
+       i = i+j;
+        message.guild.setIcon(Icon[i]);
+    }, ms);5000
+    }
+}); 
 
 client.login(process.env.BOT_TOKEN);
