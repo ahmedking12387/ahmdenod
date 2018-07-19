@@ -319,17 +319,7 @@ if( verifed.some(word => message.author.id.includes(word)) ) {    return message
 });
 
 
-	 client.on("message", (message) => {
-    if (message.content.startsWith("+ban ")) {
-      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('⚠ ماعندك الصلاحيات');
-        var member= message.mentions.members.first();
-        member.ban().then((member) => {
-            message.channel.send(member.displayName + " لقد تم طرده بنجاح 👋 ");
-        }).catch(() => {
-            message.channel.send("❌ هناك خطاء حاول مره أخرى❌ ");
-        });
-    }
-});
+
 client.on('message', ( message ) => {
     if( message.content == '+unbans' ){
         if( !message.member.hasPermission( 'ADMINISTRATOR' ) ) return message.reply(' لا تملك الصلاحيات لفعل هذا الأمر');
@@ -993,9 +983,9 @@ client.on('message', message => {
           if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
           if (!args[1]) return msg.reply('اكتب السبب')
           //غير اسم الروم او سوي روم بذا الاسم 
-          if (msg.guild.channels.find('name', '')) {
+          if (msg.guild.channels.find('name', 'log-warn')) {
             //اذا غيرت فوق غير هنا كمان 
-            msg.guild.channels.find('name', '').send(`
+            msg.guild.channels.find('name', 'log-warn').send(`
           تم اعطائك تنبيه : ${msg.mentions.members.first()}
           لأنك قمت بما يلي
           ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
@@ -1110,5 +1100,18 @@ client.on('message', message => {
        }
          });
 
+
+bot.on("message", message => {
+    var prefix = "+"
+    if (!message.content.startsWith(prefix)) return;
+      let command = message.content.split(" ")[0];
+      command = command.slice(prefix.length);
+        if(command === "mcskin") {
+                const args = message.content.split(" ").slice(1).join(" ")
+        if (!args) return message.channel.send("** Type your skin name **");
+        const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
+    message.channel.send(image)
+        }
+    });
 
 client.login(process.env.BOT_TOKEN);
