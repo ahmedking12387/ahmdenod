@@ -281,28 +281,28 @@ client.on('message', message => {
                     });
 
 
-client.on('message', msg => {
-  if (msg.author.bot) return;
-  if (!msg.content.startsWith(prefix)) return;
-  let command = msg.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  let args = msg.content.split(" ").slice(1);
+client.on("message", message => {
+    var prefix = "+";
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix - "clear")) {
+				if(!message.channel.guild) return;
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | *** ⚠ لا يوجد لك مانج ماسج ***');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "© Premium Bot ™."
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
 
-    if(command === "clear") {
-        const emoji = client.emojis.find("name", "log")
-    let textxt = args.slice(0).join("");
-    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
-    if (textxt == "") {
-        msg.delete().then
-    msg.channel.send("***```ضع عدد الرسائل التي تريد مسحها 👌```***").then(m => m.delete(3000));
-} else {
-    msg.delete().then
-    msg.delete().then
-    msg.channel.bulkDelete(textxt);
-        msg.channel.send("```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000));
-        }    
-    }
-}
+     
 });
 
 
@@ -714,11 +714,11 @@ if (command == "warn") {
     .setDescription(args.join("  "))
     .setColor(0x831f18)
     message.channel.sendEmbed(say);
-    client.channels.get("451448472671879169").send(`**=========================================**`)
-    client.channels.get("451448472671879169").send(`**New Warn !**`)
-    client.channels.get("451448472671879169").send({embed : say})
-    client.channels.get("451448472671879169").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
-    client.channels.get("451448472671879169").send(`**In Channel : ${message.channel}**`)
+    client.channels.get("451448474785808387").send(`**=========================================**`)
+    client.channels.get("451448474785808387").send(`**New Warn !**`)
+    client.channels.get("451448474785808387").send({embed : say})
+    client.channels.get("451448474785808387").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
+    client.channels.get("451448474785808387").send(`**In Channel : ${message.channel}**`)
     message.delete();
   }
 
@@ -1102,26 +1102,7 @@ client.on('message', message => {
 
 
 
-client.on('message',async function (message) =>  {
-const prefix = "+";
-if (message.content.startsWith(prefix+'+YT'))
-    {
-        var members = []
-        let evidence = message.content.split(" ").slice(1,2).join(" ")
-        let reason = message.content.split(" ").slice(2).join(" ")
-        if (!reason) return message.reply(`**${prefix}apply [تقديمك] [رابط مقطعك]**`)
-        if(!evidence.match(linkreg)) return message.channel.send(`**${prefix}apply [تقديمك] [رابط مقطعك]**`)
-        if(!evidence) return message.reply(`راجاً ضع رابط مقطع لتقديمك`)
-        var embed = new Discord.RichEmbed()
-            .setTitle(`تقديم من ${message.author.username}`)
-            .addField(`التقديم`, "**`\`\`\"+ reason + "`\`\`\**")
-            .addField(`رابط المقطع`, evidence)
-            .setColor(`GREEN`)
-            client.channels.get("451448466644795392").send(embed)
-            members.push(message.author.id);
-            message.channel.send(`${mentions} تم تقديم طلبك...`)
-        }  
-});
+
 
 
 client.login(process.env.BOT_TOKEN);
