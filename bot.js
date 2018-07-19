@@ -1149,23 +1149,6 @@ var mentionned = message.mentions.members.first();
          
      });
 
- client.on('message', message => {
-    if (message.content === (prefix) + "icon") {
-    var ms =60000;
-    var Icon = [`https://cdn.discordapp.com/attachments/338569764379033601/469473414176964658/flix_logo.png`,`https://cdn.discordapp.com/attachments/338569764379033601/469473353883975690/flixlogo9.png`,`https://cdn.discordapp.com/attachments/338569764379033601/469473355590795274/flixlogo094.png`,`image link here`];
-    var i = -1;
-    var j = 0; 
-   setInterval(function (){
-       if( i == -1 ){
-            j = 1;
-        }
-        if( i == (Icon.length)-1 ){
-            j = -1;
-        }
-       i = i+j;
-        message.guild.setIcon(Icon[i]);
-    }, ms);5000
-    }
-}); 
+
 
 client.login(process.env.BOT_TOKEN);
