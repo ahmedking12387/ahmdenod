@@ -1101,9 +1101,10 @@ client.on('message', message => {
          });
 
 
+
 client.on('message',async function (message) =>  {
 const prefix = "+";
-if (message.content.startsWith(prefix+'rmc'))
+if (message.content.startsWith(prefix+'+YT'))
     {
         var members = []
         let evidence = message.content.split(" ").slice(1,2).join(" ")
