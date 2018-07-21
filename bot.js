@@ -849,7 +849,7 @@ client.on('message', function(message) {
     } else if(message.content.startsWith(prefix + "stream")) {
 		        if(message.author.id !== myID) return;
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
-        client.user.setGame(args , 'https://twitch.tv/6xlez1');
+        client.user.setGame(args , 'https://twitch.tv/A_K');
         message.channel.send(':white_check_mark: Done!').then(msg => {
            msg.delete(5000);
           message.delete(5000);
@@ -1043,7 +1043,7 @@ client.on('message', message => {
   if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
   if(!reason) return message.reply ("**اكتب سبب الطرد**");
   if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
 
   message.guild.member(user).ban(7, user);
 
@@ -1165,7 +1165,7 @@ client.on("message", message => {
         color: 0x06DF00,
         description: "تم مسح الرسائل بنجاح",
         footer: {
-          text: "Desert Bot"
+          text: "FlixMC bot"
         }
       }}).then(msg => {msg.delete(3000)});
                           }
