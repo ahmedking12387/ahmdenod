@@ -662,23 +662,35 @@ client.on('message', message => {
 });
 
 
-   client.on('message', message => {
+client.on('message', message => {
   if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
   if(!message.channel.guild) return;
   if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
   if (message.mentions.users.size < 1) return;
-   
-    if (message.content.startsWith("+warn")) {
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+ 
+
+if (command == "warn") {
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor(0x831f18)
+    message.channel.sendEmbed(say);
     client.channels.get("469863222963339287").send(`**=========================================**`)
     client.channels.get("469863222963339287").send(`**New Warn !**`)
+    client.channels.get("469863222963339287").send({embed : say})
     client.channels.get("469863222963339287").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
     client.channels.get("469863222963339287").send(`**In Channel : ${message.channel}**`)
-    client.channels.get("469863222963339287").send(`**=========================================**`)
+    message.delete();
   }
-      
-      
-   });
 
+
+});
 
 client.on('message', message => {
     if (message.author.bot) return;
