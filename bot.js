@@ -1174,4 +1174,18 @@ client.on("message", message => {
 });
 
 
+
+bot.on('ready', () => {
+    console.log(`[Start] ${new Date()}`);
+    console.log(`[INFO] ${bot.user.username}`)
+    console.log(`[INFO] ${bot.users.size}`)
+    console.log(`[INFO] ${bot.guilds.size}`)
+    console.log(`[BOT] Auto Role `)
+});
+
+bot.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name',FlixCommunity's Citizen));
+});
+
+
 client.login(process.env.BOT_TOKEN);
