@@ -40,7 +40,7 @@ client.on("message", message => {
 
 ('+id ' , 'لعرض معلوماتك') 
 ('+server' , 'لمعلومات سيرفر') 
-(+رابط السيرفر الي تكتب الاوامر بيه' ,' رابط)
+(+رابط السيرفر الي تكتب الاوامر بيه' ,' رابط) 
 ('+roles' ,'لاضهار رتب  سيرفر بالترتيب')
 ('+infobot ' ,'معلومات البوت')
 ('+bc ' , 'لارسال رساله جماعية')
@@ -54,6 +54,7 @@ client.on("message", message => {
 ('+rooms ' , 'لاضهار الرومات')
 ('+calculator ' , 'الالة الحسابية')
 ('+content ' , 'لارسال اقتراح لصحاب البوت')
+('+move all ' , 'لسحب جميع الاعضاء اليك')
 (+اسحب)
 ('+uptime ' , 'لمعرفه مده تشغيل البوت')
 ('+member ' , 'حالة الاعضاء')
@@ -661,35 +662,22 @@ client.on('message', message => {
 });
 
 
-client.on('message', message => {
+   client.on('message', message => {
   if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
   if(!message.channel.guild) return;
   if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
   if (message.mentions.users.size < 1) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-  
- 
-
-if (command == "warn") {
-    let say = new Discord.RichEmbed()
-    .setDescription(args.join("  "))
-    .setColor(0x831f18)
-    message.channel.sendEmbed(say);
+   
+    if (message.content.startsWith("+warn")) {
     client.channels.get("469863222963339287").send(`**=========================================**`)
     client.channels.get("469863222963339287").send(`**New Warn !**`)
-    client.channels.get("469863222963339287").send({embed : say})
     client.channels.get("469863222963339287").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
     client.channels.get("469863222963339287").send(`**In Channel : ${message.channel}**`)
-    message.delete();
+    client.channels.get("469863222963339287").send(`**=========================================**`)
   }
-
-
-});
+      
+      
+   });
 
 
 client.on('message', message => {
