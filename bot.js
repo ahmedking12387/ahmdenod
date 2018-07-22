@@ -1247,4 +1247,25 @@ client.on('message', msg => {
 });
 
 
+client.on('message', msg => { 
+if (msg.content.startsWith(`+report`)) {
+// تعريف الارجس
+   let args = msg.content.split(" ").slice(1);
+// لو ما منشن احد يرد عيله
+  if (!msg.mentions.members.first()) return msg.reply(`يجب عليك منشن شخص`)
+// لو ما كتب تبليغ بيقوله اكتب تبليغ
+  if (!args[1]) return msg.reply(` .. اكتب تبليغك`)
+// استبدل <الروم> بأسم الروم حقك
+  if (msg.guild.channels.find('name', 'staff')) {
+// استبدل هنا بعد
+    msg.guild.channels.find('name', 'staff').send(`
+  تبليغ على : ${msg.mentions.members.first()}
+  بلغ عليه من قبل : ${msg.member}
+  في روم : ${msg.channel.name}
+  السبب : **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
+  `)
+  }
+}
+});
+
 client.login(process.env.BOT_TOKEN);
