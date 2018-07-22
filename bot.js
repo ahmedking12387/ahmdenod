@@ -721,7 +721,7 @@ if (command == "warn") {
     message.channel.sendEmbed(say);
     client.channels.get("469863222963339287").send(`**=========================================**`)
     client.channels.get("469863222963339287").send(`**New Warn !**`)
-    client.channels.get("469863222963339287").send({embed : say})
+    client.channels.get("469863222963339287").send({say})
     client.channels.get("469863222963339287").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
     client.channels.get("469863222963339287").send(`**In Channel : ${message.channel}**`)
     message.delete();
