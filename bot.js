@@ -1233,5 +1233,31 @@ client.on('message', msg => {
 });
 
 
-	       
+
+client.on('message', msg => {
+  //Code By : ‡ ♪ ℬℐℓѦℓ✋ ‡#2026
+  if(msg.content.startsWith('+YT')) {
+    if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
+    if(!msg.guild.channels.find('name', 'youtube')) return msg.reply('**الرجاء إضافة روم بإسم (youtube)**');
+    let args = msg.content.split(" ").slice(1);
+    if(!args[1]) return msg.reply('الرجاء كتابة رابط المقطع')
+    //غيره على حسب اسم روم الاقتراحات او سوي مثل اسم الروم الموجود هنا
+    if(msg.guild.channels.find('name', 'youtube')) {
+      //غيره هنا كمان اذا غيرت فوق
+      msg.guild.channels.find('name', 'youtube').send(`
+      تم تقديم طلب يوتيوبر من قبل : ${msg.member}
+
+      الاقتراح : 
+      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
+      `)
+      .then(function (message) {
+        message.react('✅')
+        message.react('❌')
+      })
+      }
+    }
+
+});
+
+
 client.login(process.env.BOT_TOKEN);
