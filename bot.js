@@ -1628,7 +1628,7 @@ client.on('message', message => {
 
     while (!guild)
 
-        guild = client.guilds.get("اي دي سيرفرك - Server id");
+        guild = client.guilds.get("342720209540612096");
 
     guild.fetchInvites().then((data) => {
 
@@ -1755,6 +1755,7 @@ client.on('message', message => {
 
 });
  
+
 
 
 client.login(process.env.BOT_TOKEN);
