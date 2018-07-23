@@ -1089,8 +1089,8 @@ client.on('message', message => {
         reason: reason
       });
     });
-
-
+}
+});
 
 
     client.on('message', message => {
