@@ -1522,7 +1522,7 @@ message.channel.sendEmbed(embed).then();
 
 
 client.on('message', message => {
-     if(message.content.startsWith(prefix + "+bbbc")) {
+     if(message.content.startsWith(prefix + "bbbc")) {
  let args = message.content.split(" ").slice(1);
 
     var user = message.mentions.users.first();
