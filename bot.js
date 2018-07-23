@@ -1554,7 +1554,42 @@ client.on('message', message => {
 
 
 
+client.on('message', message => {
+    if(message.channel.type === "dm") return;
+       if (message.content === prefix + "bot") {
+       let embed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .addField("Servers:globe_with_meridians:" , client.guilds.size)
+    .addField("Users:busts_in_silhouette:" , client.users.size)
+    .addField("Channels:books:" , client.channels.size)
+    message.channel.sendEmbed(embed);
+      }
+  });
 
+
+
+
+
+client.on('message' , async (message) => {
+       if(message.content.startsWith(`<@${client.user.id}>`)) {
+              
+ let responses = [
+        'كيف اقدر اساعدك',
+        'مرحبا',
+        'مشغوول انا لا تزعجني',
+        'لاحوول اش تبي سريعع؟؟.',
+        'هلا',
+        'كيفك',
+        '?',
+        '+help'
+    ]
+    
+    // Fetch a random item from the array
+    let fetched = responses[Math.floor(Math.random() * responses.length)];
+   message.reply(fetched)
+       }
+  
+});
 
 client.login(process.env.BOT_TOKEN);
 
