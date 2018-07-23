@@ -1835,15 +1835,6 @@ var mentionned = message.mentions.members.first();
 });
   
 
-  let channel = ["451448491819139092"];
-client.on('voiceStateUpdate', (Codes, ReBeL) => {
-client.channels.get(channel);
-    ReBeL.guild.member(ReBeL).addRole(ReBeL.guild.roles.find("name", "انا قوووي"))
-                    c.delete(305).catch(console.log);
-  console.log("Done");
-});
-});
-});	
 	
 
 client.login(process.env.BOT_TOKEN);
