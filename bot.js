@@ -1835,41 +1835,17 @@ var mentionned = message.mentions.members.first();
 });
   
 
-client.on('message', async message => {//By Codes , - ST I EdiTeD , .#4968
-  if(message.content.startsWith(prefix + "تقديم")) {//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968
-    await message.channel.send("**:writing_hand: ارسل اسمك ب اللعبة الآن **").then(e => {
-    let filter = m => m.author.id === message.author.id
-    let lan = '';
-    let md = '';//By Codes , - ST I EdiTeD , .#4968
-    let br = '';//By Codes , - ST I EdiTeD , .#4968
-    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-    .then(collected => {
-      lan = collected.first().content
-      collected.first().delete()
-e.edit(`**:ارسل مدة خبرتك الان**`)
-let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-.then(co => {//By Codes , - ST I EdiTeD , .#4968
-  md = co.first().content
-        co.first().delete()//By Codes , - ST I EdiTeD , .#4968
-        e.edit(`**كم المدة الي تقدر تتفاعلها ب السيرفر**`)
-let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968
-.then(col => {
-  br = col.first().content
-        col.first().delete()
-e.edit("**جاري التقديم علي طلبك...**").then(b => {//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968
-        setTimeout(() => {
-  b.edit(`**تم التقديم وسيتم الرد فـ اقرب وقت**`)
-        },2000);
-var gg = message.guild.channels.find('name', 'youtube')
-if(!gg) return;//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968
-if(gg) {
-gg.send({embed : new Discord.RichEmbed()//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968
-.setDescription(`**اللغة البرمجية : \n ${lan}\n مدة ممارسة هذه اللغة :\n ${md} \nالخبرة  :\n ${br}  **`)  
-          .setFooter(`Codes.`)//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968
-.setTimestamp()//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968//By Codes , - ST I EdiTeD , .#4968
-
-	});
-	
+  let channel = ["451448491819139092"];
+client.on('voiceStateUpdate', (Codes, ReBeL) => {
+client.channels.get(channel);
+    ReBeL.guild.member(ReBeL).addRole(ReBeL.guild.roles.find("name", "انا قوووي"))
+                  ReBeL.guild.createChannel('ReBeL', 'voice').then(c => {
+                ReBeL.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log);
+  console.log("Done");
+});
+});
+});	
 	
 
 client.login(process.env.BOT_TOKEN);
