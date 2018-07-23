@@ -1091,6 +1091,7 @@ client.on('message', message => {
 
 
 
+
     client.on('message', message => {
       var prefix = "+";
       if(message.content.startsWith(prefix + 'move all')) {
@@ -1536,7 +1537,7 @@ message.channel.sendEmbed(embed).then();
 
 
 client.on('message', message => {
-     if(message.content.startsWith(prefix + "bc")) {
+     if(message.content.startsWith(prefix + "+bbbc")) {
  let args = message.content.split(" ").slice(1);
 
     var user = message.mentions.users.first();
