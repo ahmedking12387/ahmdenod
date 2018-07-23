@@ -1998,5 +1998,115 @@ client.on('messageDelete', message => {
 
 
 
+
+var attentions = {};
+var prefix = '$';
+var times = {
+    "1⃣": "m",
+    "2⃣": "h",
+    "3⃣": "d"
+}
+var times_ms = {
+    "m": 1000 * 60,
+    "h": 1000 * 60 * 60,
+    "d": 1000 * 60 * 60 * 24
+}
+var times_name = {
+    "m": "الدقائق",
+    "h": "الساعات",
+    "d": "الأيام"
+}
+console.log('Alarm Code . By NorElden..');
+client.on('message',( message )=>{
+    if( message.content.startsWith( prefix + 'alarm' ) ){
+        if( attentions[ message.member ] ) {
+            message.channel.send( message.member + ', **:timer: أنتظر قليلاً ريثما يتم أعدادك**').then( (m) =>{
+                m.react('1⃣').then( r1 => {
+                    m.react('2⃣').then( r2 => {
+                        setTimeout(function ( ){
+                            m.edit( message.member +', ** يوجد تذكير مضاف بالفعل, هل تريد حذفه ؟ ** \n**:one: نعم** \n **:two: لا** ' );
+                            m.awaitReactions((reaction, user) => user.id == message.author.id, {time: 60000, maxEmojis: 1})
+                            .then(result => {
+                                var reaction = result.firstKey();
+                                if( reaction == "1⃣" || reaction == "2⃣" ){
+                                    if( reaction == "1⃣" ){
+                                        clearTimeout(attentions[message.member]['timer']);
+                                        attentions[message.member] = undefined;
+                                        m.edit(message.member + '**:white_check_mark: تم حذف التذكير, يمكنك الآن أضافة واحد**');
+                                    } else if( reaction == "2⃣" ){
+                                        m.edit(message.member + '** لن يتم حذف التذكير **')
+                                    }
+                                    m.clearReactions();
+                                }
+                            });
+                        },1000);
+                    });
+                });
+            });
+           
+        } else {
+            attentions[message.member] = { };
+            message.channel.send( message.member + ', **:timer: أنتظر قليلاً ريثما يتم أعدادك**').then( (m) =>{
+                m.edit( message.member + ', **:writing_hand: ماذا تريد ان يكون عنوان التذكير **' )
+                m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m1) => {
+                    m1 = m1.first();
+                    attentions[message.member]['title'] = m1.content;
+                    m1.delete();
+                    m.edit(message.member + ', **:timer: أنتظر قليلاً ريثما يتم أعدادك**').then( (m) =>{
+                        m.edit( message.member + ', **:writing_hand: ماذا تريد ان يكون وصف التذكير **' )
+                        m.channel.awaitMessages( m2 => m2.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m2) => {
+                            m2 = m2.first();
+                            attentions[message.member]['desc'] = m2.content;
+                            m2.delete()
+                            m.edit(message.member + ', **:timer: أنتظر قليلاً ريثما يتم أعدادك**').then( ()=>{
+                                m.react('1⃣').then( r1 => {
+                                    m.react('2⃣').then( r2 => {
+                                        m.react('3⃣').then( r2 => {
+                                            setTimeout(function ( ){
+                                                m.edit(message.member + ', **:writing_hand: حدد موعد التذكير التقريبي**\n **:one: بعد دقائق ** \n **:two: بعد ساعات ** \n **:three: بعد أيام**');
+                                                m.awaitReactions((reaction, user) => user.id == message.author.id, {time: 60000, maxEmojis: 1})
+                                                    .then(result => {
+                                                        var reaction = result.firstKey();
+                                                        if( reaction == "1⃣" || reaction == "2⃣" || reaction == "3⃣" ){
+                                                            attentions[message.member]['time'] = times_ms[times[reaction]];
+                                                            m.edit(message.member + ', **:timer: أنتظر قليلاً ريثما يتم أعدادك**').then ( ( ) =>{
+                                                            m.clearReactions().then( () =>{
+                                                                m.edit(message.member + ', **:timer: اذكر عدد '+times_name[times[reaction]]+'**' )
+                                                                    m.channel.awaitMessages( m3 => m3.author == message.author && !isNaN(m3.content),{ maxMatches: 1, time: 60*1000 } ).then ( (m3) => {
+                                                                        m3 = m3.first();
+                                                                        attentions[message.member]['time_num'] = m3.content;
+                                                                        m3.delete();
+                                                                        attentions[message.member]['timer'] = setTimeout(function( ){
+                                                                            message.member.send('** '+message.member+' تذكير !! **')
+                                                                            var embed = new Discord.RichEmbed( );
+                                                                            embed.setTitle( attentions[message.member]['title'] );
+                                                                            embed.setDescription( attentions[message.member]['desc'] );
+                                                                            embed.setTimestamp();
+                                                                            message.member.send({embed});
+                                                                            message.member.send('** '+message.member+' تذكير !! **')
+                                                                        }, attentions[message.member]['time_num'] * attentions[message.member]['time'] );
+                                                                       
+                                                                        message.reply('** :white_check_mark: تم أضافة التذكير, سيتم تذكيرك لاحقاً **');
+                                                                        m.delete();
+                                                                        message.delete();
+                                                                    }).catch(function(){ m.delete( ); attentions[message.member] = undefined; } );
+                                                                });
+                                                            });
+                                                        }
+                                                    });
+                                            },1000);
+                                        });
+                                    });
+                                });
+                            }).catch(function() { m.delete();attentions[message.member] = undefined;  });
+                        }).catch(function() { m.delete(); attentions[message.member] = undefined;  });
+                    });
+                   
+                }).catch(function( ) {m.delete(); attentions[message.member] = undefined; });
+            });
+        }
+    }
+	
+
 client.login(process.env.BOT_TOKEN);
 
