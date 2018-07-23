@@ -1601,7 +1601,7 @@ client.on('message' , message => {
         if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك رتبة`**');
         if(!user) return  message.channel.send(`Do this ${prefix} <@ID user> \n or \n ${prefix}unban ID user`);
         message.guild.unban(user);
-        message.guild.owner.send(`لقد تم فك الباند عن الشخص \n ${user} \n By : <@${message.author.id}>`)
+        message.guild.owner.send(`لقد تم فك الباند عن العضو \n ${user} \n By : <@${message.author.id}>`)
         var embed = new Discord.RichEmbed()
         .setThumbnail(message.author.avatarURl)
         .setColor("RANDOM")
@@ -1612,7 +1612,6 @@ client.on('message' , message => {
         message.channel.sendEmbed(embed)
     }
 });
-
 
 
 client.login(process.env.BOT_TOKEN);
