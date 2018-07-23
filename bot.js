@@ -1060,37 +1060,35 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.members.first();
-  if(user.hasPermission("BAN_MEMBERS")) {
-    return message.channel.send(`**لايمكنني طرد عضو لديه رتبة عالية**`)
-  }
-  let reason = message.content.split(" ").slice(2).join(" ");
-  /*let b5bzlog = client.channels.find("name", "5bz-log");
+               message.delete();
+    let mod = message.author;
+    let avatar = message.author.displayAvatarURL;
+    let user = message.mentions.members.first();
 
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channe.send("**ليس لديك الصلاحيات الكافية لإستعمال هذا الامر**");
+    if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("ليس لدي صلاحيات لتبنيد الاعضاء");
+    if(user.hasPermission("BAN_MEMBERS")) {
+      return message.channel.send("**لايمكنني تبنيد هذا العضو**");
+    }
+    let reason = args.slice(1).join(" ");
+    if(!reason) return message.channel.send("**الرجاء كتابة السبب**");
 
-  message.guild.member(user).ban(7, user);
-
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : banembed
-  })
-}
-});
+    let embed = new Discord.RichEmbed()
+    .setAuthor(`BANNED!`, user.displayAvatarURL)
+    .setColor("RANDOM")
+    .setTimestamp()
+    .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+    .addField("**By:**", '**[ ' + `${mod.tag}` + ' ]**')
+    .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+    let log = message.guild.channels.find("name", "log");
+    log.send(embed);
+    message.channel.send(embed).then(r => r.delete(1500))
+    user.send(embed).then(() => {
+      user.ban({
+        days: 7,
+        reason: reason
+      });
+    });
 
 
 
