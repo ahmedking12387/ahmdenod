@@ -1806,7 +1806,7 @@ var mentionned = message.mentions.members.first();
   let mention = message.mentions.members.first();
   let role = message.content.split(" ").slice(2).join(" ");
   let mySupport = message.guild.roles.find('name',staff);
-  let acRoom = client.channels.get('Channel ID');
+  let acRoom = client.channels.get('467574873737134080');
   if(message.content.startsWith(prefix + "قبول")) {
     if(message.guild.id !== '342720209540612096') return;
     if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
