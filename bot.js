@@ -1,6 +1,10 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = '+'
 
-
-t.user.setGame(`+help |   IP:FlixMC.tk  .`,"http://twitch.tv/A_K")
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`+help |   IP:FlixMC.tk  .`,"http://twitch.tv/A_K")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
