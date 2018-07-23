@@ -968,19 +968,23 @@ client.on('message', message => {
 }
 });
 
+
+
 client.on('message', message => {
-    var prefix = "+"
-    if (message.content === prefix + "date") {
-        var currentTime = new Date(),
-            السنة = currentTime.getFullYear(),
-            الشهر = currentTime.getMonth() + 1,
-            اليوم = currentTime.getDate();
-        message.channel.sendMessage( "التاريخ : " + ��ليوم + "-" + الشهر + "-" +السنة)
-    }
+  const port = '25565'
+  if(message.content.startsWith('+mcserver-stats')) {
+ const args = message.content.split(" ").slice(1).join(" ")
+    if (!args) return message.channel.send("** Type the server name **");
+        let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(`https://api.minetools.eu/favicon/${args}/25565`)
+        .addField(":scroll: Server Name",`${args}`,true)
+        .addField(":globe_with_meridians: Server Port",`${port}`)
+        .setImage(`http://status.mclive.eu/${args}/${args}/25565/banner.png`)
+        .setFooter(`${bot.user.username}`)
+                .setTimestamp()
+    message.channel.send(embed)      
 });
-
-
-
 
 
 
