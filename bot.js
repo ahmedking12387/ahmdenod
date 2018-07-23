@@ -1064,7 +1064,7 @@ client.on('message', message => {
          
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
   if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
+  let user = message.mentions.members.first();
   if(user.hasPermission("BAN_MEMBERS")) {
     return message.channel.send(`**لايمكنني طرد عضو لديه رتبة عالية**`)
   }
