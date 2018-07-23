@@ -929,7 +929,8 @@ client.on("guildMemberAdd", member => {
 
 
 client.on('message', message => {
-  if (message.author.x5bz) return;
+const prefix = "!";
+  if (message.author.kick) return;
   if (!message.content.startsWith(prefix)) return;
 
   let command = message.content.split(" ")[0];
@@ -938,32 +939,28 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "kick") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
+               if(!message.channel.guild) return;
          
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("You Don't Have KICK_MEMBERS Permission").then(msg => msg.delete(5000));
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("I Don't Have KICK_Members Permission");
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
-  /*let b5bzlog = client.channels.find("name", "5bz-log");
 
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+  if (message.mentions.users.size < 1) return message.reply("منشن شخص");
+  if(!reason) return message.reply ("اكتب سبب الطرد");
   if (!message.guild.member(user)
-  .kickable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عاليه**");
+  .bannable) return message.reply("لايمكنني طرد شخص اعلى من رتبتي");
 
-  message.guild.member(user).kick();
+  message.guild.member(user).kick(7, user);
 
-  const kickembed = new Discord.RichEmbed()
-  .setAuthor(`KICKED!`, user.displayAvatarURL)
+  const banembed = new Discord.RichEmbed()
+  .setAuthor('Kicked !', user.displayAvatarURL)
   .setColor("RANDOM")
   .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : kickembed
-  })
+  .addField("User:",  `[ + ${user.tag} + ]`)
+  .addField("By:", `[  + ${message.author.tag} +  ]`)
+  .addField("Reason:", `[ + ${reason} +  ]`)
+  client.channels.get("451448474785808387").send({embed : banembed})
 }
 });
 
@@ -1835,7 +1832,75 @@ var mentionned = message.mentions.members.first();
 });
   
 
-	
+
+  client.on('message', message => {
+if(message.content == '460448782514126848') {
+message.channel.startTyping()
+setTimeout(() => { 
+message.channel.stopTyping()
+}, 10000);
+}
+});
+
+
+
+
+  client.on("guildBanAdd", (guild, member) => {
+  client.setTimeout(() => {
+    guild.fetchAuditLogs({
+        limit: 1,
+        type: 22
+      })
+      .then(audit => {
+        let exec = audit.entries.map(a => a.executor.username);
+        try {
+          let log = guild.channels.find('name', 'log');
+          if (!log) return;
+          client.fetchUser(member.id).then(myUser => {
+          let embed = new Discord.RichEmbed()
+        .setAuthor(exec)
+        .setThumbnail(myUser.avatarURL)
+        .addField('- Banned User:',`**${myUser.username}**`,true)
+        .addField('- Banned By:',`**${exec}**`,true)
+        .setFooter(myUser.username,myUser.avatarURL)
+            .setTimestamp();
+          log.send(embed).catch(e => {
+            console.log(e);
+          });
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      });
+  }, 1000);
+});
+
+
+
+client.on('voiceStateUpdate', (o, n) => {
+        let newUserChannel = n.voiceChannel
+    let oldUserChannel = o.voiceChannel
+
+    var channel = client.channels.get("451448489767862272");
+        let cha = n.guild.channels.get(451448517878218782");
+        
+          let mute1 = o.serverMute;
+  let mute2 = n.serverMute;
+  
+
+  let deafen1 = o.serverDeaf;
+  let deafen2 = n.serverDeaf;
+
+    if(mute1 === false && mute2 === true) return;
+    if(mute1 === true && mute2 === false) return;
+    if(deafen1 === false && deafen2 === true) return;
+    if(deafen1 === true && deafen2 === false) return;
+    
+
+    channel.send(`Join Room ${n.displayName}`)
+
+});
+
 
 client.login(process.env.BOT_TOKEN);
 
