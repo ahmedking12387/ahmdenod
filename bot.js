@@ -1949,17 +1949,7 @@ client.on("roleCreate", rc => {
   }
   });
  
-client.on("channelCreate",  cc => {
-  const channel = cc.guild.channels.find("name", "log")
-  if(channel) {
-  var embed = new Discord.RichEmbed()
-  .setTitle(cc.guild.name)
-  .setDescription(`***Channel Created Name : *** **${cc.name}** ⬅️`)
-  .setColor(`RANDOM`)
-  .setTimestamp();
-  channel.sendEmbed(embed)
-  }
-  });
+
  
    client.on("deleteChannel",  dc => {
   const channel = dc.guild.channels.find("name", "log")
