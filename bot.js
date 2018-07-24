@@ -836,7 +836,7 @@ client.on('message', message => {
     
  
        
-          member.ban().then((member) => {
+          member.kick().then((member) => {
               message.channel.send("", {embed: {
               author: {
               },
@@ -929,7 +929,7 @@ client.on("guildMemberAdd", member => {
 
 
 client.on('message', message => {
-const prefix = "!";
+const prefix = "+";
   if (message.author.kick) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -1090,6 +1090,7 @@ client.on('message', message => {
       
        }
          });
+
 
 
 
