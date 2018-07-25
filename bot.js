@@ -526,11 +526,11 @@ if (command == "warn") {
     .setDescription(args.join("  "))
     .setColor(0x831f18)
     message.channel.sendEmbed(say);
-    client.channels.get("466409418662215680").send(`**=========================================**`)
-    client.channels.get("466409418662215680").send(`**New Warn !**`)
-    client.channels.get("466409418662215680").send({embed : say})
-    client.channels.get("466409418662215680").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
-    client.channels.get("466409418662215680").send(`**In Channel : ${message.channel}**`)
+    client.channels.get("469863222963339287").send(`**=========================================**`)
+    client.channels.get("469863222963339287").send(`**New Warn !**`)
+    client.channels.get("469863222963339287").send({embed : say})
+    client.channels.get("469863222963339287").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
+    client.channels.get("469863222963339287").send(`**In Channel : ${message.channel}**`)
     message.delete();
   }
 
