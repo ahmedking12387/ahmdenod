@@ -988,5 +988,134 @@ client.on("message", message => {
 
 
 
+
+client.on('message', msg => {
+  //Code By : ‡ ♪ ℬℐℓѦℓ✋ ‡#2026
+  if(msg.content.startsWith('+suggest')) {
+    if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
+    if(!msg.guild.channels.find('name', 'suggestions')) return msg.reply('**الرجاء إضافة روم بإسم (suggestions)**');
+    let args = msg.content.split(" ").slice(1);
+    if(!args[1]) return msg.reply('الرجاء كتابة الاقتراح')
+    //غيره على حسب اسم روم الاقتراحات او سوي مثل اسم الروم الموجود هنا
+    if(msg.guild.channels.find('name', 'suggestions')) {
+      //غيره هنا كمان اذا غيرت فوق
+      msg.guild.channels.find('name', 'suggestions').send(`
+      تم الاقتراح من قبل : ${msg.member}
+      الاقتراح : 
+      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
+      `)
+      .then(function (message) {
+        message.react('✅')
+        message.react('❌')
+      })
+      }
+    }
+
+});
+
+
+
+client.on('message', msg => {
+  //Code By : ‡ ♪ ℬℐℓѦℓ✋ ‡#2026
+  if(msg.content.startsWith('+YT')) {
+    if(!msg.channel.guild) return msg.reply('** هاذا الامر فقط للسيرفرات**');
+    if(!msg.guild.channels.find('name', 'youtube')) return msg.reply('**الرجاء إضافة روم بإسم (youtube)**');
+    let args = msg.content.split(" ").slice(1);
+    if(!args[1]) return msg.reply(' الرجاء كتابة رابط المقطع وسبب تقديمك')
+    //غيره على حسب اسم روم الاقتراحات او سوي مثل اسم الروم الموجود هنا
+    if(msg.guild.channels.find('name', 'youtube')) {
+      //غيره هنا كمان اذا غيرت فوق
+      msg.guild.channels.find('name', 'youtube').send(`
+      تم تقديم طلب يوتيوبر من قبل : ${msg.member}
+      رابط المقطع : 
+      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
+      `)
+      .then(function (message) {
+        message.react('✅')
+        message.react('❌')
+      })
+      }
+    }
+
+});
+
+
+client.on('message', msg => { 
+if (msg.content.startsWith(`+report`)) {
+// تعريف الارجس
+   let args = msg.content.split(" ").slice(1);
+// لو ما منشن احد يرد عيله
+  if (!msg.mentions.members.first()) return msg.reply(`يجب عليك منشن شخص`)
+// لو ما كتب تبليغ بيقوله اكتب تبليغ
+  if (!args[1]) return msg.reply(` .. اكتب تبليغك`)
+// استبدل <الروم> بأسم الروم حقك
+  if (msg.guild.channels.find('name', 'staff')) {
+// استبدل هنا بعد
+    msg.guild.channels.find('name', 'staff').send(`
+  تبليغ على : ${msg.mentions.members.first()}
+  بلغ عليه من قبل : ${msg.member}
+  في روم : ${msg.channel.name}
+  السبب : **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
+  `)
+  }
+}
+});
+
+
+client.on('message', message => {
+     if(message.content.startsWith(prefix + "bbbc")) {
+ let args = message.content.split(" ").slice(1);
+
+    var user = message.mentions.users.first();
+    var reason = args.slice(1).join(' ');
+    const embed = new Discord.RichEmbed()
+        .setColor(0xFFB200)
+        .setTimestamp();
+
+    if (!user) {
+        embed.addField("DM A Person", `Who are you going to DM ${message.author.tag}?`)
+            .setFooter(`lol why did i add dis again?`);
+        return message.channel.send({embed});
+    } if (!reason) {
+        embed.addField("DM A Person", `What are you going to say to ${user.tag}?`)
+        return message.channel.send({embed});
+    }
+    embed.addField("DM A Person", `Successfully sent a DM to ${user.tag}!`)
+        .setFooter(`lol.`);
+    message.channel.send({embed});
+    const embed1 = new Discord.RichEmbed()
+        .setColor(0xFFB200)
+        .setTimestamp()
+        .addField("You have received mail! :mailbox_with_mail:", `**${reason}**`)
+        .setFooter(`Sent by ${message.author.tag}.`);
+    user.send({embed: embed1});
+}
+});
+
+client.on('message' , message => {
+    var prefix = "+";
+    let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
+    if(message.content.startsWith(prefix + 'unban')) {
+        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك رتبة`**');
+        if(!user) return  message.channel.send(`Do this ${prefix} <@ID user> \n or \n ${prefix}unban ID user`);
+        message.guild.unban(user);
+        message.guild.owner.send(`لقد تم فك الباند عن العضو \n ${user} \n By : <@${message.author.id}>`)
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(message.author.avatarURl)
+        .setColor("RANDOM")
+        .setTitle('**●Unban** !')
+        .addField('**●User Unban :** ', `${user}` , true)
+        .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
+        .setAuthor(message.guild.name)
+        message.channel.sendEmbed(embed)
+    }
+});
+
+client.on('message', message => {
+   if (message.content === "+قرعه 25") {
+  message.channel.sendMessage(Math.floor(Math.random() * 25));
+    }
+});
+
 client.login(process.env.BOT_TOKEN);
 
