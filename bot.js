@@ -58,7 +58,7 @@ return;
 
  client.on('message',async message => {
   let mention = message.mentions.members.first();
-  let acRoom = client.channels.get('467574873737134080');
+  let acRoom = client.channels.get('467576639325208576');
   if(message.content.startsWith(prefix + "هلبر")) {
   if(message.guild.id !== '342720209540612096') return;
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
@@ -73,7 +73,7 @@ return;
 
  client.on('message',async message => {
   let mention = message.mentions.members.first();
-  let acRoom = client.channels.get('467574873737134080');
+  let acRoom = client.channels.get('467576639325208576');
   if(message.content.startsWith(prefix + "سبورت")) {
   if(message.guild.id !== '342720209540612096') return;
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
