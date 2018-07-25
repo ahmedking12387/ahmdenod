@@ -413,8 +413,8 @@ command = command.slice(prefix.length);
 let args = message.content.split(" ").slice(1);
 if (command == "Mute") {
 if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+if(!message.guild.member(message.author).hasPermission("MUTE_MEMBERS")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
+if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "Muted");
 if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
@@ -444,10 +444,10 @@ ${user} انت معاقب بميوت كتابي بسبب مخالفة القوا
 .setColor("RANDOM")
  user.send( muteembeddm);
 }
-if (command == "UnMute") {
+if (command == "unmute") {
 if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
+if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "Muted");
 if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
