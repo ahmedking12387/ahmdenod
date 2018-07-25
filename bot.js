@@ -507,6 +507,8 @@ client.on('message', message => {
 
 
 
+var prefix = "+";
+
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -525,10 +527,10 @@ if (command == "warn") {
     let say = new Discord.RichEmbed()
     .setDescription(args.join("  "))
     .setColor(0x831f18)
-    message.channel.sendEmbed(say);
+    message.channel.send(args.join(' '));
     client.channels.get("469863222963339287").send(`**=========================================**`)
     client.channels.get("469863222963339287").send(`**New Warn !**`)
-    client.channels.get("469863222963339287").send({embed : say})
+    client.channels.get("469863222963339287").send(args.join(' '))
     client.channels.get("469863222963339287").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
     client.channels.get("469863222963339287").send(`**In Channel : ${message.channel}**`)
     message.delete();
