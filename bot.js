@@ -1844,7 +1844,7 @@ var mentionned = message.mentions.members.first();
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply("منشن شخص");
 
-  acRoom.send(`**${mention} ● FlixMC Helper تم التحقق منك وقبول طلبك للانضمام لادارة**`)
+  acRoom.send(`**${mention} ● FlixMC Helper تم التحقق منك وقبول طلبك كــ**`)
   }
 });
 
@@ -1859,7 +1859,7 @@ var mentionned = message.mentions.members.first();
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply("منشن شخص");
 
-  acRoom.send(`**${mention} ✱ Support تم التحقق منك وقبول طلبك للانضمام لادارة**`)
+  acRoom.send(`**${mention} ✱ Support تم التحقق منك وقبول طلبك كــ**`)
   }
 });
 
