@@ -265,6 +265,7 @@ client.on('message', message => {
   });
 
 
+
 client.on('message', message => {
 	const prefix = '+'
     if (message.author.id === client.user.id) return;
