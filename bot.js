@@ -1838,7 +1838,7 @@ var mentionned = message.mentions.members.first();
   client.on('message',async message => {
   let mention = message.mentions.members.first();
   let role = message.content.split(" ").slice(2).join(" ");
-  let mySupport = message.guild.roles.find('name',staff);
+  let mySupport = message.guild.roles.find('name','bot_test');
   let acRoom = client.channels.get('467574873737134080');
   if(message.content.startsWith(prefix + "قبول")) {
     if(message.guild.id !== '342720209540612096') return;
