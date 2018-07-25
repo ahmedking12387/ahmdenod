@@ -588,6 +588,7 @@ if (message.content.startsWith(prefix + "uptime")) {
 });
 
 
+
 client.on('message',function(message) {
     let muteRole = message.guild.roles.find(r => r.name === "Muted");
     let muteId = message.mentions.users.first();
@@ -660,6 +661,7 @@ message.channel.awaitMessages(response => response.content === '3', {
    });
    }
 });
+
 
 
 
