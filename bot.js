@@ -54,5 +54,36 @@ return;
 });
 
 
+
+
+ client.on('message',async message => {
+  let mention = message.mentions.members.first();
+  let acRoom = client.channels.get('467574873737134080');
+  if(message.content.startsWith(prefix + "هلبر")) {
+  if(message.guild.id !== '342720209540612096') return;
+  if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
+  if(!mention) return message.reply("منشن شخص");
+
+  acRoom.send(`**${mention} ● FlixMC Helper تم التحقق منك وقبول طلبك كــ**`)
+  }
+});
+
+
+
+
+ client.on('message',async message => {
+  let mention = message.mentions.members.first();
+  let acRoom = client.channels.get('467574873737134080');
+  if(message.content.startsWith(prefix + "سبورت")) {
+  if(message.guild.id !== '342720209540612096') return;
+  if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
+  if(!mention) return message.reply("منشن شخص");
+
+  acRoom.send(`**${mention} ✱ Support تم التحقق منك وقبول طلبك كــ**`)
+  }
+});
+
+
+
 client.login(process.env.BOT_TOKEN);
 
