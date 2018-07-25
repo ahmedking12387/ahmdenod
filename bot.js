@@ -1028,6 +1028,7 @@ client.on('voiceStateUpdate', (old, now) => {
 });
 
 
+
 client.on("guildMemberAdd", function(member) {
     const wc = member.guild.channels.find("name", "welcome")
         const embed = new Discord.RichEmbed()
