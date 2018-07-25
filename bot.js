@@ -411,7 +411,7 @@ if (!message.content.startsWith(prefix)) return;
 let command = message.content.split(" ")[0];
 command = command.slice(prefix.length);
 let args = message.content.split(" ").slice(1);
-if (command == "Mute") {
+if (command == "mute") {
 if (!message.channel.guild) return;
 if(!message.guild.member(message.author).hasPermission("MUTE_MEMBERS")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
