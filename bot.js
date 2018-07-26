@@ -1203,7 +1203,7 @@ client.on('voiceStateUpdate', (o, n) => {
     if(deafen1 === true && deafen2 === false) return;
     
 
-    channel.send(`Join Room ${n.displayName}`)
+    channel.send(`Join Support - Waiting @● Discord STAFF @● Minecraft STAFF  Room ${n.displayName}`)
 
 });
 
