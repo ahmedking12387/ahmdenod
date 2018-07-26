@@ -1159,14 +1159,15 @@ client.on('message', message => {
 });
 
 
+
 client.on("ready", async  => {
 setInterval(function(){
-client.channels.find('id', '470514725286051860').setName("(:");
-client.channels.find('id', '470514725286051860').setName("):");
-client.channels.find('id', '470514725286051860').setName("(x");
-client.channels.find('id', '470514725286051860').setName("ip :FlixMC.tk");
-client.channels.find('id', '470514725286051860').setName("bot By :A_K");
-client.channels.find('id', '470514725286051860').setName("<3");
+client.channels.find('id', '470514725286051860').setName("W");
+client.channels.find('id', '470514725286051860').setName("We");
+client.channels.find('id', '470514725286051860').setName("Wel");
+client.channels.find('id', '470514725286051860').setName("Welc");
+client.channels.find('id', '470514725286051860').setName("Welco");
+client.channels.find('id', '470514725286051860').setName("Welcom");
 client.channels.find('id', '470514725286051860').setName("Welcome");
 client.channels.find('id', '470514725286051860').setName("Welcome T");
 client.channels.find('id', '470514725286051860').setName("Welcome To");
@@ -1175,7 +1176,35 @@ client.channels.find('id', '470514725286051860').setName("Welcome To Fl");
 client.channels.find('id', '470514725286051860').setName("Welcome To Flix");
 client.channels.find('id', '470514725286051860').setName("Welcome To FlixM");
 client.channels.find('id', '470514725286051860').setName("Welcome To FlixMC");
-  }, 3000);
+  }, 5000);
+});
+
+
+
+
+
+client.on('voiceStateUpdate', (o, n) => {
+        let newUserChannel = n.voiceChannel
+    let oldUserChannel = o.voiceChannel
+
+    var channel = client.channels.get("451448489767862272");
+        let cha = n.guild.channels.get("451448517878218782");
+        
+          let mute1 = o.serverMute;
+  let mute2 = n.serverMute;
+  
+
+  let deafen1 = o.serverDeaf;
+  let deafen2 = n.serverDeaf;
+
+    if(mute1 === false && mute2 === true) return;
+    if(mute1 === true && mute2 === false) return;
+    if(deafen1 === false && deafen2 === true) return;
+    if(deafen1 === true && deafen2 === false) return;
+    
+
+    channel.send(`Join Room ${n.displayName}`)
+
 });
 
 
