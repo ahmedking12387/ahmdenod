@@ -984,7 +984,8 @@ client.on('message', msg => {
     if(!msg.guild.channels.find('name', 'suggestions')) return msg.reply('**الرجاء إضافة روم بإسم (suggestions)**');
     let args = msg.content.split(" ").slice(1);
     if(!args[1]) return msg.reply('الرجاء كتابة الاقتراح')
-    //غيره على حسب اسم روم الاقتراحات او سوي مثل اسم الروم الموجود هنا
+           message.delete();
+	  
     if(msg.guild.channels.find('name', 'suggestions')) {
       //غيره هنا كمان اذا غيرت فوق
       msg.guild.channels.find('name', 'suggestions').send(`
