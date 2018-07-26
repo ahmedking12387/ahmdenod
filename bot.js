@@ -1158,5 +1158,27 @@ client.on('message', message => {
 
 });
 
+
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '470514725286051860').setName("W");
+client.channels.find('id', '470514725286051860').setName("We");
+client.channels.find('id', '470514725286051860').setName("Wel");
+client.channels.find('id', '470514725286051860').setName("Welc");
+client.channels.find('id', '470514725286051860').setName("Welco");
+client.channels.find('id', '470514725286051860').setName("Welcom");
+client.channels.find('id', '470514725286051860').setName("Welcome");
+client.channels.find('id', '470514725286051860').setName("Welcome T");
+client.channels.find('id', '470514725286051860').setName("Welcome To");
+client.channels.find('id', '470514725286051860').setName("Welcome To F");
+client.channels.find('id', '470514725286051860').setName("Welcome To Fl");
+client.channels.find('id', '470514725286051860').setName("Welcome To Flix");
+client.channels.find('id', '470514725286051860').setName("Welcome To FlixM");
+client.channels.find('id', '470514725286051860').setName("Welcome To FlixMC");
+  }, 3000);
+});
+
+
+
 client.login(process.env.BOT_TOKEN);
 
