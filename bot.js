@@ -1183,27 +1183,24 @@ client.channels.find('id', '470514725286051860').setName("Welcome To FlixMC");
 
 
 
-client.on('voiceStateUpdate', (o, n) => {
-        let newUserChannel = n.voiceChannel
-    let oldUserChannel = o.voiceChannel
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
 
-    var channel = client.channels.get("451448489767862272");
-        let cha = n.guild.channels.get("451448517878218782");
-        
-          let mute1 = o.serverMute;
-  let mute2 = n.serverMute;
-  
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
 
-  let deafen1 = o.serverDeaf;
-  let deafen2 = n.serverDeaf;
+  let args = message.content.split(" ").slice(1);
 
-    if(mute1 === false && mute2 === true) return;
-    if(mute1 === true && mute2 === false) return;
-    if(deafen1 === false && deafen2 === true) return;
-    if(deafen1 === true && deafen2 === false) return;
-    
 
-    channel.send(`**Join Support - Waiting @● Discord STAFF @● Minecraft STAFF  Room ${n.displayName} **`)
+
+if (command == "say") {
+let rank = message.guild.member(message.author).roles.find('name', 'say');
+if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+  message.channel.send(args.join("  "))
+    message.delete();
+  }
+
 
 });
 
