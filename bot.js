@@ -1175,7 +1175,7 @@ client.channels.find('id', '470514725286051860').setName("Welcome To Fl");
 client.channels.find('id', '470514725286051860').setName("Welcome To Flix");
 client.channels.find('id', '470514725286051860').setName("Welcome To FlixM");
 client.channels.find('id', '470514725286051860').setName("Welcome To FlixMC");
-  }, 3000);
+  }, 5000);
 });
 
 
