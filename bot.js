@@ -43,5 +43,5 @@ for (let i = 0; i < 1; i++) {
 });
 
 
-cliؤent.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
 
