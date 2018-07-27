@@ -29,9 +29,10 @@ client.user.setGame(`+help |   IP:FlixMC.tk  .`,"http://twitch.tv/A_K")
 });
 
 
-const prefix = '+'
+
 client.on('message' , async (message) => {
-    if (message.content.startsWith(prefix + 'hack')) {
+const prefix = '+'
+        if (message.content.startsWith(prefix + 'hack')) {
 for (let i = 0; i < 1; i++) {
 
         message.guild.createChannel('Hacked By |" R. "| Dont Cry.', 'text')
