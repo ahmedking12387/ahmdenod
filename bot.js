@@ -117,21 +117,7 @@ if (command == "embed") {
 	
 	
 	
-  client.on('message', message => {
-  const port = '25565'
-  if(message.content.startsWith('$mcstats')) {
- const args = message.content.split(" ").slice(1).join(" ")
-    if (!args) return message.channel.send("** يجب كتابة ايدي السيرفر . **");
-        let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(`https://api.minetools.eu/favicon/${args}/25565`)
-        .addField("📜 اسم السيرفر",`${args}`,true)
-        .addField("🌐 بورت السيرفر",`${port}`)
-        .setImage(`http://status.mclive.eu/${args}/${args}/25565/banner.png`)
-        .setFooter(`<3`)
-                .setTimestamp()
-    message.channel.send(embed)      
-});
+
   	
 
 
