@@ -30,9 +30,6 @@ client.user.setGame(`d`,"http://twitch.tv/A_K")
 
 
 
-
-
-
 client.on('message', function(message) {
 	const myID = "279194403564814336";
     let args = message.content.split(" ").slice(1).join(" ");
