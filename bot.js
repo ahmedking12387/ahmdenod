@@ -9,6 +9,7 @@ const queue = new Map();
 const client = new Discord.Client();
 
  
+
 const prefix = "+"
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
