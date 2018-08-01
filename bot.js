@@ -331,7 +331,7 @@ return;
 
 
 
-lient.on('message', message => {
+client.on('message', message => {
 	const prefix = '+'
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
@@ -406,6 +406,11 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 }
 });
+
+
+
+
+
 
 
 client.login(process.env.BOT_TOKEN);
