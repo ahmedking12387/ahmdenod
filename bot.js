@@ -435,4 +435,15 @@ client.channels.find('id', '474080627566575629').setName("Welcome To Marlboro");
 
 
 
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('474084579465232384');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`#Marlboro Voice: ${currentSize}`);
+  if (currentSize !== size) channel.setName(`##Marlboro Voice:${currentSize}`);
+});
+
+
+
+
 client.login(process.env.BOT_TOKEN);
