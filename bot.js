@@ -409,7 +409,30 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 
 
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '474080627566575629').setName("W");
+client.channels.find('id', '474080627566575629').setName("We");
+client.channels.find('id', '474080627566575629').setName("Wel");
+client.channels.find('id', '474080627566575629').setName("Welc");
+client.channels.find('id', '474080627566575629').setName("Welco");
+client.channels.find('id', '474080627566575629').setName("Welcom");
+client.channels.find('id', '474080627566575629').setName("Welcome");
+client.channels.find('id', '474080627566575629').setName("Welcome T");
+client.channels.find('id', '474080627566575629').setName("Welcome To");
+client.channels.find('id', '474080627566575629').setName("Welcome To M");
+client.channels.find('id', '474080627566575629').setName("Welcome To Ma");
+client.channels.find('id', '474080627566575629').setName("Welcome To Mar");
+client.channels.find('id', '474080627566575629').setName("Welcome To Marl");
+client.channels.find('id', '474080627566575629').setName("Welcome To Marlb");
+client.channels.find('id', '474080627566575629').setName("Welcome To Marlbo");
+client.channels.find('id', '474080627566575629').setName("Welcome To Marlbor");
+client.channels.find('id', '474080627566575629').setName("Welcome To Marlboro");
+  }, 3000);
+});
 
 
 
