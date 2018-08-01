@@ -409,8 +409,7 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
+
 
 client.on("ready", async  => {
 setInterval(function(){
