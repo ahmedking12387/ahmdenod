@@ -29,11 +29,11 @@ client.user.setGame(`3rbMC`,"http://twitch.tv/A_K")
 });
 
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = '.'
+
+
 client.on('message' , async (message) => {
-    if (message.content.startsWith(prefix + '.')) {
+    const prefix = '.'
+	if (message.content.startsWith(prefix + '.')) {
 for (let i = 0; i < 1; i++) {
 	
 
