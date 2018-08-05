@@ -1,26 +1,27 @@
-{
-  "name": "Test",
-  "description": "Test",
-  "version": "0.0.0",
-  "main": "bot.js",
-  "scripts": {
-    "start": "node bot.js"
-  },
-  "dependencies": {
-   "discord.js": "^11.3.2",
-    "discord.js-musicbot-addon": "^1.10.3",
-    "ascii-data-table":"2.1.1",
-    "array-sort": "1.0.0",
-    "get-youtube-id": "^1.0.0",
-    "figlet":"1.2.0",
-    "google-it":"1.1.1",
-    "node-opus": "^0.2.7",
-    "opusscript": "0.0.6",
-    "python": "0.0.4",
-    "youtube-info": "^1.2.0",
-    "ytdl-core": "^0.20.2",
-     "ffmpeg": "0.0.4",
-    "ffmpeg-binaries": "^3.2.2-3",
-    "simple-youtube-api": "^5.0.2"
-  }
-}
+//packages//
+
+npm i ffmpeg-binaries
+npm i discord.js
+npm i fs
+npm i ms
+npm i ytdl-core
+npm i jimp
+npm i math-expression-evaluator
+npm i get-youtube-id
+npm i quick.db
+npm i figlet
+npm i zalgolize
+npm i youtube-info
+npm i simple-youtube-api
+npm i Youtube
+npm i sqlite
+npm i dateformat
+npm i pretty-ms
+npm i moment
+npm i google-translate-api
+npm i goo.gl
+npm i giphy-api
+npm i common-tags
+
+
+//كل البكجات الي يمكن حتحتاجها في السلسلة حقتنا//
