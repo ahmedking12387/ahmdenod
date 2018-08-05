@@ -214,6 +214,7 @@ function play(guild, song) {
 }
 
 
+});
 
 
 
