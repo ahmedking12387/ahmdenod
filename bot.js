@@ -195,14 +195,26 @@ return;
 
 
 
+let rank = message.guild.member(message.author).roles.find('name', 'say');
+if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+  message.channel.send(args.join("  "))
+    message.delete();
+
+
+
+
+
+
+
     client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
 
-  let rank = message.guild.member(message.author).roles.find('name', 'ban');
-  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر');
-   
+  let rank = message.guild.member(message.author).roles.find('name', 'say');
+  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+    message.channel.send(args.join("  "))
+      message.delete();
 
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
@@ -216,28 +228,31 @@ return;
   if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
-  let b5bzlog = client.channels.find("name", "wwc");
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");
+  /*let b5bzlog = client.channels.find("name", "5bz-log");
+  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
   if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
   if(!reason) return message.reply ("**اكتب سبب الطرد**");
   if (!message.guild.member(user)
   .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
 
   message.guild.member(user).ban(7, user);
- 
 
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : banembed
-  })
+	  
+	  
+	  
+message.channel.send(args.join(' '));
+client.channels.get("475999824525656064").send(`**=========================================**`)
+client.channels.get("475999824525656064").send(`New ban `) 
+client.channels.get("475999824525656064").send(`"**User:**",  '**[ ' + `${user.tag}` + ' ]**`)
+client.channels.get("475999824525656064").send(`"**By:**", '**[ ' + `${message.author.tag}` + ' ]**`)
+client.channels.get("475999824525656064").send(`"**Reason:**", '**[ ' + `${reason}` + ' ]**`)
+client.channels.get("475999824525656064").send(`**=========================================**`)
+ }	  	  
+	  
+
 }
 });
+
 
 
 
