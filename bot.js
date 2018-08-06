@@ -32,3 +32,4 @@ client.user.setGame(`+help |   IP:FlixMC.tk  .`,"http://twitch.tv/A_K")
 
 
 client.login(process.env.BOT_TOKEN);
+
