@@ -43,7 +43,7 @@ client.user.setGame(`x:`,"http://twitch.tv/A_K")
        m.setVoiceChannel(author)
        })
        message.channel.send(`**تم سحب جميع الأعضاء إليك**`)
-      
+     
       
        }
          });
@@ -51,7 +51,38 @@ client.user.setGame(`x:`,"http://twitch.tv/A_K")
 
 
 
+```
+client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
 
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+                .setAuthor(message.guild.name, message.guild.iconURL)
+        .setDescription(`
+**
+---------------------
+-[**Wind**]  هذا هو رابط 
+---------------------
+-هذا الرابط صالح ل 5 مستخدم فقط
+---------------------
+-هذا الرابط صالح لمده 24 ساعه فقط
+---------------------
+**`)
+      message.author.sendEmbed(Embed11)
+    }
+});
+```
 
 
 client.login(process.env.BOT_TOKEN);
