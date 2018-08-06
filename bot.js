@@ -186,9 +186,9 @@ client.on('message', function(message) {
   if (!message.content.startsWith(prefix)) return;
 
 
-  let rank = message.guild.member(message.author).roles.find('name', 'say');
+  let rank = message.guild.member(message.author).roles.find('name', 'ban');
   if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
-    message.channel.send(args.join("  "))
+   
       
 
   let command = message.content.split(" ")[0];
