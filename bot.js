@@ -124,51 +124,60 @@ client.on('voiceStateUpdate', (old, now) => {
 
 
 
-
-client.on('message', message => {
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  /*let b5bzlog = client.channels.find("name", "5bz-log");
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
-
-  message.guild.member(user).ban(7, user);
-
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : banembed
-
-if (command == "ban") {
-let rank = message.guild.member(message.author).roles.find('name', 'ban');
-if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
-  message.channel.send(args.join("  "))
-    message.delete();
-  }  
-})
-}
+client.on('message', function(message) {
+	const myID = "279194403564814336";
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "setname")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setUsername(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "stream")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args , 'https://twitch.tv/A_K');
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "play")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "listen")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'LISTENING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "watch")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'WATCHING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "setavatar")) {
+				        if(message.author.id !== myID) return;
+        client.user.setAvatar(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    }
 });
+
 
 
 client.login(process.env.BOT_TOKEN);
