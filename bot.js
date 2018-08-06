@@ -110,5 +110,18 @@ if (!rank) return message.reply('انت لا تمتلك الرتبه المخص�
 
 
 
+
+
+
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('475994170343817226');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`#Wind Voice: ${currentSize}`);
+  if (currentSize !== size) channel.setName(`#Wind Voice:${currentSize}`);
+});
+
+
+
 client.login(process.env.BOT_TOKEN);
 
