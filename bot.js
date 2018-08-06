@@ -201,7 +201,7 @@ return;
 
 
   let rank = message.guild.member(message.author).roles.find('name', 'ban');
-  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر');
    
 
   let command = message.content.split(" ")[0];
@@ -225,8 +225,7 @@ return;
 
   message.guild.member(user).ban(7, user);
  
-	  let b5bzlog = client.channels.find("name", "wwc");
-if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");
+
   const banembed = new Discord.RichEmbed()
   .setAuthor(`BANNED!`, user.displayAvatarURL)
   .setColor("RANDOM")
