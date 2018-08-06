@@ -51,7 +51,7 @@ client.user.setGame(`x:`,"http://twitch.tv/A_K")
 
 
 
-```
+
 client.on('message', message => {
     if (message.content.startsWith("رابط")) {
 
@@ -82,7 +82,11 @@ client.on('message', message => {
       message.author.sendEmbed(Embed11)
     }
 });
-```
+
+
+
+
+
 
 
 client.login(process.env.BOT_TOKEN);
