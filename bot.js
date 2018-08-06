@@ -224,7 +224,9 @@ return;
   .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
 
   message.guild.member(user).ban(7, user);
-
+ 
+	  let b5bzlog = client.channels.find("name", "wwc");
+if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");
   const banembed = new Discord.RichEmbed()
   .setAuthor(`BANNED!`, user.displayAvatarURL)
   .setColor("RANDOM")
