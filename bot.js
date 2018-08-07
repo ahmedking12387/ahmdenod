@@ -243,7 +243,7 @@ if (!rank) return message.reply('انت لا تمتلك الرتبه المخص�
 message.channel.send(args.join(' '));
 client.channels.get("475999824525656064").send(`**=========================================**`)
 client.channels.get("475999824525656064").send(`New ban `) 
-client.channels.get("475999824525656064").send(`"**User:**",  '**[ ' + `${user.tag}` + ' ]**`)
+client.channels.get("475999824525656064").send("**User:**",  '**[ ' + `${user.tag}` + ' ]**`)
 client.channels.get("475999824525656064").send(`"**By:**", '**[ ' + `${message.author.tag}` + ' ]**`)
 client.channels.get("475999824525656064").send(`"**Reason:**", '**[ ' + `${reason}` + ' ]**`)
 client.channels.get("475999824525656064").send(`**=========================================**`)
