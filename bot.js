@@ -238,7 +238,7 @@ return;
     client.channels.get("475999824525656064").send("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
      client.channels.get("475999824525656064").send("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
   client.channels.get("475999824525656064").send("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
+    message.channel.send(args.join(' '));
     embed : banembed
   })
 }
