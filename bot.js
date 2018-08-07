@@ -195,13 +195,6 @@ return;
 
 
 
-let rank = message.guild.member(message.author).roles.find('name', 'say');
-if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
-  message.channel.send(args.join("  "))
-    message.delete();
-
-
-
 
 
 
@@ -211,7 +204,7 @@ if (!rank) return message.reply('انت لا تمتلك الرتبه المخص�
   if (!message.content.startsWith(prefix)) return;
 
 
-  let rank = message.guild.member(message.author).roles.find('name', 'say');
+  let rank = message.guild.member(message.author).roles.find('name', 'ban');
   if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
     message.channel.send(args.join("  "))
       message.delete();
@@ -237,20 +230,19 @@ if (!rank) return message.reply('انت لا تمتلك الرتبه المخص�
 
   message.guild.member(user).ban(7, user);
 
-	  
-	  
-	  
-message.channel.send(args.join(' '));
-client.channels.get("475999824525656064").send(`**=========================================**`)
-client.channels.get("475999824525656064").send(`New ban `) 
-client.channels.get("475999824525656064").send(`"**By:**", '**[ ' + `${message.author.tag}` + ' ]**`)
-client.channels.get("475999824525656064").send(`"**Reason:**", '**[ ' + `${reason}` + ' ]**`)
-client.channels.get("475999824525656064").send(`**=========================================**`)
- }	  	  
-	  
-
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+    client.channels.get("475999824525656064").send("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+     client.channels.get("475999824525656064").send("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  client.channels.get("475999824525656064").send("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
 }
 });
+
 
 
 
