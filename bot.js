@@ -202,7 +202,6 @@ client.on('message', message => {
   if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
     message.channel.send(args.join("  "))
 message.delete();
-}
 });
 
     client.on('message', message => {
