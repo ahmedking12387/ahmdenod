@@ -197,15 +197,14 @@ return;
 
 
 
-client.on('message', message => {
-  let rank = message.guild.member(message.author).roles.find('name', 'ban');
-  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
-message.delete();
-
-
     client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
+
+
+  let rank = message.guild.member(message.author).roles.find('name', 'say');
+  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+      message.delete();
 
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
@@ -232,9 +231,9 @@ message.delete();
   .setAuthor(`BANNED!`, user.displayAvatarURL)
   .setColor("RANDOM")
   .setTimestamp()
-.addField("475999824525656064").send("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-.addField("475999824525656064").send("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
- .addField("475999824525656064").send("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
   message.channel.send({
     embed : banembed
   })
