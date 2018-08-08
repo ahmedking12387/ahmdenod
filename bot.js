@@ -240,10 +240,11 @@ return;
       client.channels.get("475999824525656064").send("**Reason:**", '**[ ' + `${reason}` + ' ]**')
     message.channel.send(args.join(' '));
     embed : banembed
+ 
   })
+ 
 }
 });
-
 
 
 
