@@ -276,4 +276,51 @@ client.on('message', message => {
 
 
 
+
+client.on('message', async message => {
+    
+    let args = message.content.split(' ').slice(1);
+if (message.content.startsWith("delete colors")) {
+if(!message.member.hasPermission('ADMINISTRATOR')) return
+let role = message.guild.roles.find('name', '1');
+
+role.delete()
+}
+
+});
+
+
+
+
+
+
+client.on('message', function(message) {
+    if(!message.channel.guild) return;
+    if(message.content === 'colors create') {
+    if(message.member.hasPermission('MANAGE_ROLES')) {
+    setInterval(function(){})
+    message.channel.send('يتم انشاء 200 لون انتضر | ▶️')
+    }else{
+    message.channel.send('ما معاك البرمشن المطلوب |❌🚫')
+    }
+    }
+    });
+    
+    client.on('message', message=>{
+    if (message.content === 'colors create'){
+    if(!message.channel.guild) return;
+    if (message.member.hasPermission('MANAGE_ROLES')){
+    setInterval(function(){})
+    let count = 0;
+    let ecount = 0;
+    for(let x = 1; x < 1000; x++){
+    message.guild.createRole({name:x,
+    color: 'RANDOM'})
+    }
+    }
+    }
+    });
+
+
+
 client.login(process.env.BOT_TOKEN);
