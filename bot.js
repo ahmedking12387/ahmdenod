@@ -226,16 +226,9 @@ return;
 
 
 
-
 client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
-
-  if (command == "ban") {
-  let rank = message.guild.member(message.author).roles.find('name', 'ban');
-  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
-    message.channel.send(args.join("  "))
-      message.delete();
 
 
   let command = message.content.split(" ")[0];
@@ -244,10 +237,18 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
 
+
+  if (command == "ban") {
+  let rank = message.guild.member(message.author).roles.find('name', 'ban');
+  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+    message.channel.send(args.join("  "))
+      message.delete();
+
+
+
                if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
   /*let b5bzlog = client.channels.find("name", "5bz-log");
@@ -271,7 +272,6 @@ client.on('message', message => {
   })
 }
 });
-
 
 
 
