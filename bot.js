@@ -277,49 +277,38 @@ client.on('message', message => {
 
 
 
-client.on('message', async message => {
-    
-    let args = message.content.split(' ').slice(1);
-if (message.content.startsWith("delete colors")) {
-if(!message.member.hasPermission('ADMINISTRATOR')) return
-let role = message.guild.roles.find('name', '1');
+client.on('message', message => {
+    var prefix = "+"
+    let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
 
-role.delete()
+  let args = message.content.split(" ").slice(1);
+
+
+if(command == "draw") {
+    var Canvas = require('canvas')
+  , Image = new Canvas.Image
+  , canvas = new Canvas(450, 170)
+  , ctx = canvas.getContext('2d');
+  ctx.font = '30px Impact';
+  let args = message.content.split(" ").slice(1);
+  
+Image.src = canvas.toBuffer();
+
+    console.log(Image);
+ctx.drawImage(Image, 0, 0, Image.width / 470, Image.height / 170);
+ctx.fillText(args.join("  "),110, 70);
+
+
+ctx.beginPath();
+ctx.lineTo(50, 102);
+ctx.stroke();
+
+message.channel.sendFile(canvas.toBuffer());
 }
+}).on('ready', () => {
 
 });
-
-
-
-
-
-
-client.on('message', function(message) {
-    if(!message.channel.guild) return;
-    if(message.content === 'colors create') {
-    if(message.member.hasPermission('MANAGE_ROLES')) {
-    setInterval(function(){})
-    message.channel.send('يتم انشاء 200 لون انتضر | ▶️')
-    }else{
-    message.channel.send('ما معاك البرمشن المطلوب |❌🚫')
-    }
-    }
-    });
-    
-    client.on('message', message=>{
-    if (message.content === 'colors create'){
-    if(!message.channel.guild) return;
-    if (message.member.hasPermission('MANAGE_ROLES')){
-    setInterval(function(){})
-    let count = 0;
-    let ecount = 0;
-    for(let x = 1; x < 1000; x++){
-    message.guild.createRole({name:x,
-    color: 'RANDOM'})
-    }
-    }
-    }
-    });
 
 
 
