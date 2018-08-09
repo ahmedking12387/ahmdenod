@@ -229,10 +229,15 @@ return;
 
 
 
-    client.on('message', message => {
+  client.on('message', message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
+  if (command == "ban") {
+  let rank = message.guild.member(message.author).roles.find('name', 'ban');
+  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+    message.channel.send(args.join("  "))
+      message.delete();
 
 
   let command = message.content.split(" ")[0];
@@ -240,7 +245,7 @@ return;
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "ban") {
+
                if(!message.channel.guild) return message.reply('** This command only for servers**');
 
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
@@ -254,11 +259,6 @@ return;
   if (!message.guild.member(user)
   .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
 
-  let rank = message.guild.member(message.author).roles.find('name', 'ban');
-  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر');
-      message.delete();
-	  
-	  
   message.guild.member(user).ban(7, user);
 
   const banembed = new Discord.RichEmbed()
