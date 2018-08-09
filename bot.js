@@ -92,7 +92,7 @@ if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'سحب')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
- return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "move [USER]``")
+ return message.channel.send(" <@${usermentioned}> منشن شخص ")
 }
 if (message.member.voiceChannel != null) {
  if (message.mentions.members.first().voiceChannel != null) {
