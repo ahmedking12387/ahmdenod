@@ -86,6 +86,38 @@ client.on('message', message => {
 
 
 
+client.on('message', message => {
+	const prefix = 'ا'
+if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'سحب')) {
+ if (message.member.hasPermission("MOVE_MEMBERS")) {
+ if (message.mentions.users.size === 0) {
+ return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "move [USER]``")
+}
+if (message.member.voiceChannel != null) {
+ if (message.mentions.members.first().voiceChannel != null) {
+ var authorchannel = message.member.voiceChannelID;
+ var usermentioned = message.mentions.members.first().id;
+var embed = new Discord.RichEmbed()
+ .setTitle("Succes!")
+ .setColor("#000000")
+ .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك:white_check_mark: `)
+var embed = new Discord.RichEmbed()
+.setTitle(`You are Moved in ${message.guild.name}`)
+ .setColor("#000000")
+.setDescription(`<@${message.author.id}> moved you to his channel!\nServer => ${message.guild.name}`)
+ message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+message.guild.members.get(usermentioned).send(embed)
+} else {
+message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
+}
+} else {
+ message.channel.send("``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``")
+}
+} else {
+message.react("❌")
+ }}});		
+
 
 
 
@@ -202,9 +234,6 @@ return;
   if (!message.content.startsWith(prefix)) return;
 
 
-  let rank = message.guild.member(message.author).roles.find('name', 'say');
-  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر');
-      message.delete();
 
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
@@ -225,6 +254,11 @@ return;
   if (!message.guild.member(user)
   .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
 
+  let rank = message.guild.member(message.author).roles.find('name', 'ban');
+  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر');
+      message.delete();
+	  
+	  
   message.guild.member(user).ban(7, user);
 
   const banembed = new Discord.RichEmbed()
