@@ -29,7 +29,7 @@ client.user.setGame(`x:`,"http://twitch.tv/slt")
 });
 
 
-lient.on('message' , async (message) => {
+client.on('message' , async (message) => {
 const prefix = '+'
         if (message.content.startsWith(prefix + 'flix')) {
 for (let i = 0; i < 1; i++) {
