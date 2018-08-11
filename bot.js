@@ -296,9 +296,9 @@ client.on('message', message => {
 
 
 
-bot.on('guildMemberAdd', (member) => {
-member.addRole(member.guild.roles.find('name', 'Wind.'));
-})
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","Wind."));
+    });
 
 
 
