@@ -50,8 +50,8 @@ message.channel.send({embed:embed});
 
 
     client.on('message', message => {
-      var prefix = "+";
-      if(message.content.startsWith(prefix + 'move all')) {
+      var prefix = "ا";
+      if(message.content.startsWith(prefix + 'سحب الكل')) {
        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
          if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
       if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
@@ -296,15 +296,63 @@ client.on('message', message => {
 
 
 
+bot.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name', 'Wind.'));
+})
 
-  client.on('message' , ReBeL => {
-var prefix = "+";
-if(ReBeL.author.bot) return;
-if(ReBeL.channel.type == 'dm') return;
-if(ReBeL.content.startsWith(prefix + "احذف الالوان")) {
-ReBeL.guild.roles.filter(rebel => isNaN(rebel)).forEach(codes => codes.delete())
-}
-});
+
+
+
+
+
+client.on("roleCreate", rc => {
+  const channel = rc.guild.channels.find("name", "log") //تقدر تغير اسم الشات
+  if(channel) {
+  var embed = new Discord.RichEmbed()
+  .setTitle(rc.guild.name)
+  .setDescription(`***Created Role Name : *** **${rc.name}** `)
+  .setColor(`RANDOM`)
+  .setTimestamp(); 
+  channel.sendEmbed(embed)
+  }
+  });
+  
+  client.on("roleDelete",  rd => {
+  const channel = rd.guild.channels.find("name", "log")
+  if(channel) {
+  var embed = new Discord.RichEmbed()
+  .setTitle(rd.guild.name)
+  .setDescription(`***Deleted Role Name : *** **${rd.name}** `)
+  .setColor(`RANDOM`)
+  .setTimestamp(); 
+  channel.sendEmbed(embed)
+  }
+  });
+
+client.on("channelCreate",  cc => {
+  const channel = cc.guild.channels.find("name", "log")
+  if(channel) {
+  var embed = new Discord.RichEmbed()
+  .setTitle(cc.guild.name)
+  .setDescription(`***Channel Created Name : *** **${cc.name}** ⬅️`)
+  .setColor(`RANDOM`)
+  .setTimestamp(); 
+  channel.sendEmbed(embed)
+  }
+  });
+
+   client.on("deleteChannel",  dc => {
+  const channel = dc.guild.channels.find("name", "log")
+  if(channel) {
+  var embed = new Discord.RichEmbed()
+  .setTitle(dc.guild.name)
+  .setDescription(`***Channel Deleted Name : *** **${dc.name}** ⬅️`)
+  .setColor(`RANDOM`)
+  .setTimestamp(); 
+  channel.sendEmbed(embed)
+  }
+  });
+
 
 
 
