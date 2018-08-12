@@ -360,4 +360,32 @@ client.on("channelCreate",  cc => {
 
 
 
+
+client.on('message', message => {
+ if (message.content.includes('كس امك')){
+                     if(!message.channel.guild) return message.reply ('')
+                 if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+    message.delete() 
+     var member = message.member
+    
+ 
+       
+          member.kick().then((member) => {
+              message.channel.send("", {embed: {
+              author: {
+              },
+              title: 'بسبب السب ' + member.displayName + ' تم طرد',
+              color: 490101,
+              }
+            });
+        }
+      ) 
+    }
+}
+});
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
