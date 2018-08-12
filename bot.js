@@ -280,12 +280,13 @@ client.on('message', message => {
 
   const banembed = new Discord.RichEmbed()
   .setAuthor(`BANNED!`, user.displayAvatarURL)
-.setColor("RANDOM")
+  .setColor("RANDOM")
   .setTimestamp()
-  .addField("User:",  `[ + ${user.tag} + ]`)
-  .addField("By:", `[  + ${message.author.tag} +  ]`)
-  .addField("Reason:", `[ + ${reason} +  ]`)
-  client.channels.get("477093131263672320").send({embed : banembed})
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
   })
 }
 });
@@ -374,6 +375,61 @@ client.on('message', message => {
               author: {
               },
               title: 'بسبب السب ' + member.displayName + ' تم طرد',
+              color: 490101,
+              }
+            });
+        }
+      ) 
+    }
+}
+});
+
+
+
+
+
+client.on('message', message => {
+ if (message.content.includes('اختك')){
+                     if(!message.channel.guild) return message.reply ('')
+                 if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+    message.delete() 
+     var member = message.member
+    
+ 
+       
+          member.kick().then((member) => {
+              message.channel.send("", {embed: {
+              author: {
+              },
+              title: 'بسبب السب ' + member.displayName + ' تم طرد',
+              color: 490101,
+              }
+            });
+        }
+      ) 
+    }
+}
+});
+
+
+
+
+
+
+client.on('message', message => {
+ if (message.content.includes('كس')){
+                     if(!message.channel.guild) return message.reply ('')
+                 if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+    message.delete() 
+     var member = message.member
+    
+ 
+       
+          member.kick().then((member) => {
+              message.channel.send("", {embed: {
+              author: {
+              },
+              title: ':x: :no_entry_sign:   ' + member.displayName + '  تم طرد العضو  هذا  ب سبب  السب',
               color: 490101,
               }
             });
