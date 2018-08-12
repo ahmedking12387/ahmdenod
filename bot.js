@@ -376,7 +376,9 @@ client.on('message', message => {
               },
               title: 'بسبب السب ' + member.displayName + ' تم طرد',
               color: 490101,
-              }
+                               msg.delete(10000);
+			 message.delete(10000);
+	      }
             });
         }
       ) 
@@ -403,7 +405,9 @@ client.on('message', message => {
               },
               title: 'بسبب السب ' + member.displayName + ' تم طرد',
               color: 490101,
-              }
+                               msg.delete(10000);
+			 message.delete(10000);
+	      }
             });
         }
       ) 
@@ -431,7 +435,9 @@ client.on('message', message => {
               },
               title: ':x: :no_entry_sign:   ' + member.displayName + '  تم طرد العضو  هذا  ب سبب  السب',
               color: 490101,
-              }
+                 msg.delete(10000);
+			 message.delete(10000);
+	      }
             });
         }
       ) 
