@@ -53,14 +53,14 @@ message.channel.send({embed:embed});
       var prefix = "ا";
       if(message.content.startsWith(prefix + 'سحب الكل')) {
        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
-         if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
+         if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("**لايوجد لدي صلاحية السحب**");
       if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
        var author = message.member.voiceChannelID;
        var m = message.guild.members.filter(m=>m.voiceChannel)
        message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
        m.setVoiceChannel(author)
        })
-       message.channel.send(`**تم سحب جميع الأعضاء إليك**`)
+       message.channel.send(`**تم سحب جميع الأعضاء إليك :white_check_mark: **`)
 
 
        }
@@ -105,12 +105,12 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-	const prefix = 'ا'
+	const prefix = 'أ'
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'سحب')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
- return message.channel.send(" <@${usermentioned}> منشن شخص ")
+ return message.channel.send(" منشن شخص ")
 }
 if (message.member.voiceChannel != null) {
  if (message.mentions.members.first().voiceChannel != null) {
@@ -127,7 +127,7 @@ var embed = new Discord.RichEmbed()
  message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
 message.guild.members.get(usermentioned).send(embed)
 } else {
-message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
+message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `:x:  لم يتم العثور على العضو المطلوب `")
 }
 } else {
  message.channel.send("``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``")
