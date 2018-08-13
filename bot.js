@@ -70,37 +70,36 @@ message.channel.send({embed:embed});
 
 
 
-client.on('message', message => {
-    if (message.content.startsWith("رابط")) {
-
-  message.channel.createInvite({
-        thing: true,
-        maxUses: 5,
-        maxAge: 86400
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-    const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
-              const Embed11 = new Discord.RichEmbed()
-        .setColor("RANDOM")
-                .setAuthor(message.guild.name, message.guild.iconURL)
-        .setDescription(`
-**
----------------------
--[**Wind**]  هذا هو رابط
----------------------
--هذا الرابط صالح ل 5 مستخدم فقط
----------------------
--هذا الرابط صالح لمده 24 ساعه فقط
----------------------
-**`)
-      message.author.sendEmbed(Embed11)
+const misaka = new Set();
+    client.on('message', async msg => {
+  if(msg.content.startsWith("رابط")) {
+  if (misaka.has(msg.author.id)) {
+    let misakaemb = new Discord.RichEmbed()
+    .setDescription(`يجب عليك الانتظار 24 ساعه!`)
+    .setColor(`RED`)
+    return msg.channel.send(misakaemb).then(message => {
+     message.delete(12000) 
+    })
+    
     }
-});
+    misaka.add(msg.author.id);
 
+  
+   msg.channel.createInvite({
+        thing: true,
+        maxUses: 25,
+        maxAge: 86400,
+  }).then(invite =>
+   msg.author.sendMessage(`
+         <@${msg.author.id}> 
+         **maxUses: 5 **
+         ${invite.url}`)
+  )
+    msg.channel.send(`**تم أرسال الرابط ف الخاص :white_check_mark: **`)
+  }
+    setTimeout(() => {
+    },86400000);
+    })
 
 
 
@@ -440,24 +439,6 @@ client.on('message', message => {
 });
 
 
-
-
-
-
-client.on("message", (message) => {
-            if (message.channel.type === "dm") {
-        if (message.author.id === client.user.id) return;
-        let yumz = new Discord.RichEmbed()
-                    .setTimestamp()
-                    .setTitle("Direct Message To The Bot")
-                    .addField(`Sent By:`, `<@${message.author.id}>`)
-                    .setColor("RANDOM")
-                    .setThumbnail(message.author.displayAvatarURL)
-                    .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
-                    .setFooter(`DM Bot Messages | DM Logs`)
-                client.users.get("279194403564814336").send(yumz)
-            }
-});
 
 
 
