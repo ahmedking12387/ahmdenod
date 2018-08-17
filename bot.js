@@ -445,6 +445,22 @@ client.on('message', message => {
 
 
 
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ReBeL) => {
+client.channels.get(channel);
+    ReBeL.guild.member(ReBeL).addRole(ReBeL.guild.roles.find("name", "e7bA_K"))
+                  ReBeL.guild.createChannel('ReBeL', 'voice').then(c => {
+                ReBeL.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log);
+  console.log("Done e7bA_K ");
+});
+});
+});
+  
+
+
+
+
 
 
 client.login(process.env.BOT_TOKEN);
