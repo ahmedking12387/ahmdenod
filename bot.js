@@ -444,14 +444,10 @@ client.on('message', message => {
 
 
 
-
   let channel = ["478655865755271185"];
-client.on('voiceStateUpdate', (Codes, ReBeL) => {
+client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-    ReBeL.guild.member(ReBeL).addRole(ReBeL.guild.roles.find("name", "e7bA_K"))
-                  ReBeL.guild.createChannel('ReBeL', 'voice').then(c => {
-                ReBeL.setVoiceChannel(c).then(() => {
-                    c.delete(305).catch(console.log);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "e7bA_K"))
   console.log("Done e7bA_K ");
 });
 });
