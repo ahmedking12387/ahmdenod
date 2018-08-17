@@ -447,7 +447,7 @@ client.on('message', message => {
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "e7bA_K"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "e7bA_K"))
   console.log("Done e7bA_K ");
 
 });
@@ -457,7 +457,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "1"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "1"))
   console.log("Done e7bA_K ");
 
 });
@@ -469,7 +469,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "2"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "2"))
   console.log("Done e7bA_K ");
 
 });
@@ -482,7 +482,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "3"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "3"))
   console.log("Done e7bA_K ");
 
 });
@@ -494,7 +494,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "5"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "5"))
   console.log("Done e7bA_K ");
 
 });
@@ -505,7 +505,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "4"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "4"))
   console.log("Done e7bA_K ");
 
 });
@@ -517,7 +517,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "6"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "6"))
   console.log("Done 7 ");
 
 });
@@ -528,7 +528,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "7"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "7"))
   console.log("Done 7 ");
 
 });
@@ -538,7 +538,7 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "8))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "8))
   console.log("Done 8");
 
 });
@@ -546,7 +546,7 @@ client.channels.get(channel);
 let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "9"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "9"))
   console.log("Done 3 ");
 
 });
@@ -555,8 +555,11 @@ client.channels.get(channel);
   let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
-   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "10"))
+   ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "10"))
   console.log("Done 10");
 
 });
+	
+	
+	
 client.login(process.env.BOT_TOKEN);
