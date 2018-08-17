@@ -449,9 +449,9 @@ client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "e7bA_K"))
   console.log("Done e7bA_K ");
+
 });
-});
-});
+
   
 
 
