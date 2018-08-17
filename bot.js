@@ -454,7 +454,7 @@ client.channels.get(channel);
 
   
 
-  let channel = ["478655865755271185"];
+
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "1"))
@@ -466,7 +466,6 @@ client.channels.get(channel);
 
 
 
-  let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "2"))
@@ -479,7 +478,7 @@ client.channels.get(channel);
 
 
 
-  let channel = ["478655865755271185"];
+
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "3"))
@@ -491,7 +490,7 @@ client.channels.get(channel);
 
 
 
-  let channel = ["478655865755271185"];
+
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "5"))
@@ -502,7 +501,7 @@ client.channels.get(channel);
 
 
 
-  let channel = ["478655865755271185"];
+
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "4"))
@@ -514,7 +513,6 @@ client.channels.get(channel);
 
 
 
-  let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "6"))
@@ -525,7 +523,6 @@ client.channels.get(channel);
 
 
 
-  let channel = ["478655865755271185"];
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "7"))
@@ -535,7 +532,7 @@ client.channels.get(channel);
 
 
 
-  let channel = ["478655865755271185"];
+
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "8))
@@ -543,7 +540,7 @@ client.channels.get(channel);
 
 });
   
-let channel = ["478655865755271185"];
+
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "9"))
@@ -552,7 +549,7 @@ client.channels.get(channel);
 });
 
 
-  let channel = ["478655865755271185"];
+
 client.on('voiceStateUpdate', (Codes, ahmed) => {
 client.channels.get(channel);
    ahmed.guild.member(ahmed).addRole(ahmed.guild.roles.find("name", "10"))
