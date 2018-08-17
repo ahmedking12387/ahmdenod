@@ -454,9 +454,109 @@ client.channels.get(channel);
 
   
 
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "1"))
+  console.log("Done e7bA_K ");
+
+});
 
 
 
 
 
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "2"))
+  console.log("Done e7bA_K ");
+
+});
+
+
+
+
+
+
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "3"))
+  console.log("Done e7bA_K ");
+
+});
+
+
+
+
+
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "5"))
+  console.log("Done e7bA_K ");
+
+});
+
+
+
+
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "4"))
+  console.log("Done e7bA_K ");
+
+});
+
+
+
+
+
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "6"))
+  console.log("Done 7 ");
+
+});
+
+
+
+
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "7"))
+  console.log("Done 7 ");
+
+});
+
+
+
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "8))
+  console.log("Done 8");
+
+});
+  
+let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "9"))
+  console.log("Done 3 ");
+
+});
+
+
+  let channel = ["478655865755271185"];
+client.on('voiceStateUpdate', (Codes, ahmed) => {
+client.channels.get(channel);
+   ahmed.guild.member(ReBeL).addRole(ahmed.guild.roles.find("name", "10"))
+  console.log("Done 10");
+
+});
 client.login(process.env.BOT_TOKEN);
