@@ -209,7 +209,6 @@ client.user.setGame(args , '');
 
 client.on('message', message => {
   if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
 
 
   let command = message.content.split(" ")[0];
@@ -237,7 +236,7 @@ client.on('message', message => {
   if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
   if(!reason) return message.reply ("**اكتب سبب الطرد**");
   if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالية**");
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجى اعطاء البوت رتبه عالية**");
 
   message.guild.member(user).ban(7, user);
 
