@@ -102,7 +102,6 @@ const misaka = new Set();
     })
 
 
-
 client.on('message', message => {
 	const prefix = 'أ'
 if(!message.channel.guild) return;
@@ -138,7 +137,6 @@ message.react("❌")
 
 
 
-
 client.on('voiceStateUpdate', (old, now) => {
   const channel = client.channels.get('475994170343817226');
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
@@ -146,7 +144,6 @@ client.on('voiceStateUpdate', (old, now) => {
   if (!size) return channel.setName(`#Wind Voice: ${currentSize}`);
   if (currentSize !== size) channel.setName(`#Wind Voice:${currentSize}`);
 });
-
 
 
 
@@ -203,14 +200,6 @@ client.on('message', function(message) {
         });
     }
 });
-
-
-
-
-
-
-
-
 
 
 client.on('message', message => {
@@ -272,58 +261,6 @@ client.on('guildMemberAdd', member=> {
 });
 
 
-
-
-
-
-
-client.on("roleCreate", rc => {
-  const channel = rc.guild.channels.find("name", "log") //تقدر تغير اسم الشات
-  if(channel) {
-  var embed = new Discord.RichEmbed()
-  .setTitle(rc.guild.name)
-  .setDescription(`***Created Role Name : *** **${rc.name}** `)
-  .setColor(`RANDOM`)
-  .setTimestamp(); 
-  channel.sendEmbed(embed)
-  }
-  });
-  
-  client.on("roleDelete",  rd => {
-  const channel = rd.guild.channels.find("name", "log")
-  if(channel) {
-  var embed = new Discord.RichEmbed()
-  .setTitle(rd.guild.name)
-  .setDescription(`***Deleted Role Name : *** **${rd.name}** `)
-  .setColor(`RANDOM`)
-  .setTimestamp(); 
-  channel.sendEmbed(embed)
-  }
-  });
-
-client.on("channelCreate",  cc => {
-  const channel = cc.guild.channels.find("name", "log")
-  if(channel) {
-  var embed = new Discord.RichEmbed()
-  .setTitle(cc.guild.name)
-  .setDescription(`***Channel Created Name : *** **${cc.name}** ⬅️`)
-  .setColor(`RANDOM`)
-  .setTimestamp(); 
-  channel.sendEmbed(embed)
-  }
-  });
-
-   client.on("deleteChannel",  dc => {
-  const channel = dc.guild.channels.find("name", "log")
-  if(channel) {
-  var embed = new Discord.RichEmbed()
-  .setTitle(dc.guild.name)
-  .setDescription(`***Channel Deleted Name : *** **${dc.name}** ⬅️`)
-  .setColor(`RANDOM`)
-  .setTimestamp(); 
-  channel.sendEmbed(embed)
-  }
-  });
 
 
 
@@ -407,45 +344,6 @@ client.on('message', message => {
     }
 }
 });
-
-
-
-
-
-
-
-
-
-client.on('message', message => {
-var prefix = "+";
-       if(message.content === prefix + "mutechannel") {
-                           if(!message.channel.guild) return message.reply('** This command only for servers**');
-
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **انت لا تمتلك الصلاحيات الازمة لهذا الامر**');
-              message.channel.overwritePermissions(message.guild.id, {
-            SEND_MESSAGES: false
-
-              }).then(() => {
-                  message.reply("**تم اقفال الشات بنجاح :white_check_mark: **")
-              });
-                }
-
-    if(message.content === prefix + "unmutechannel") {
-                        if(!message.channel.guild) return message.reply('** This command only for servers**');
-
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**انت لا تمتلك الصلاحيات الازمة لهذا الامر**');
-              message.channel.overwritePermissions(message.guild.id, {
-            SEND_MESSAGES: true
-
-              }).then(() => {
-                  message.reply("*تم فتح الشات بنجاح:white_check_mark:**")
-              });
-    }
-       
-});
-
-
-
 
 
 
