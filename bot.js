@@ -155,7 +155,7 @@ client.on('message', function(message) {
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(prefix + "setname")) {
 		        if(message.author.id !== myID) return;
-            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+            if(!args) return message.reply('اكتب الاسم الذي تريده.');
         client.user.setUsername(args);
         message.channel.send(':white_check_mark: Done!').then(msg => {
            msg.delete(5000);
@@ -197,12 +197,13 @@ client.on('message', function(message) {
 				        if(message.author.id !== myID) return;
         client.user.setAvatar(args);
         message.channel.send(':white_check_mark: Done!').then(msg => {
-                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+                if(!args) return message.reply('اكتب رابط الصوره التي تريدها.');
            msg.delete(5000);
           message.delete(5000);
         });
     }
 });
+
 
 
 
@@ -487,7 +488,7 @@ client.on('message', function(message) {
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(prefix + "setname")) {
 		        if(message.author.id !== myID) return;
-            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+            if(!args) return message.reply('اكتب الاسم الذي تريده.');
         client.user.setUsername(args);
         message.channel.send(':white_check_mark: Done!').then(msg => {
            msg.delete(5000);
@@ -529,7 +530,7 @@ client.on('message', function(message) {
 				        if(message.author.id !== myID) return;
         client.user.setAvatar(args);
         message.channel.send(':white_check_mark: Done!').then(msg => {
-                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+                if(!args) return message.reply('اكتب رابط الصوره التي تريدها.');
            msg.delete(5000);
           message.delete(5000);
         });
