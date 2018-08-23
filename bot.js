@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const prefix = '+'
 
 client.on('ready', () => {
-client.user.setGame(`x:`,"http://twitch.tv/A_K")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
