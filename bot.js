@@ -164,7 +164,7 @@ client.on('message', function(message) {
            msg.delete(5000);
           message.delete(5000);
         });
-    } else if(message.content.startsWith(prefix + "offtwitch")) {
+    } else if(message.content.startsWith(prefix + "offstatus")) {
                 if(message.author.id !== myID) return;
 client.user.setGame(args , '');
         message.channel.send(':white_check_mark: Done!').then(msg => {
@@ -372,7 +372,7 @@ client.on('message', function(message) {
            msg.delete(5000);
           message.delete(5000);
         });
-    } else if(message.content.startsWith(prefix + "offtwitch")) {
+    } else if(message.content.startsWith(prefix + "offstatus")) {
                 if(message.author.id !== myID) return;
 client.user.setGame(args , '');
         message.channel.send(':white_check_mark: Done!').then(msg => {
