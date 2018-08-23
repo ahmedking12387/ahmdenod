@@ -446,7 +446,33 @@ client.on('message', message => {
 
 
 
+client.on('message', message => {
+var prefix = "+";
+       if(message.content === prefix + "mutechannel") {
+                           if(!message.channel.guild) return message.reply('** This command only for servers**');
 
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **انت لا تمتلك الصلاحيات الازمة لهذا الامر**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: false
+
+              }).then(() => {
+                  message.reply("**تم اقفال الشات بنجاح :white_check_mark: **")
+              });
+                }
+
+    if(message.content === prefix + "unmutechannel") {
+                        if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**انت لا تمتلك الصلاحيات الازمة لهذا الامر**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: true
+
+              }).then(() => {
+                  message.reply("*تم فتح الشات بنجاح:white_check_mark:**")
+              });
+    }
+       
+});
 
 
 
