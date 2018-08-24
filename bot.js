@@ -33,7 +33,7 @@ client.on('guildMemberAdd', member=> {
 
 
     client.on('message', message => {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
+               if(!message.channel.guild) return message.reply('');
       var prefix = "ا";
       if(message.content.startsWith(prefix + 'سحب الكل')) {
        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
@@ -88,7 +88,7 @@ const misaka = new Set();
 
 
 client.on('message', message => {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
+               if(!message.channel.guild) return message.reply('');
 	const prefix = 'أ'
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'سحب')) {
@@ -196,7 +196,7 @@ client.user.setGame(args , '');
 
 
 client.on('message', message => {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
+               if(!message.channel.guild) return message.reply('');
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
