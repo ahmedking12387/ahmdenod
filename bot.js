@@ -28,25 +28,6 @@ client.on('ready', () => {
 
 
 
-client.on('message', message => {
-    if(!message.channel.guild) return;
-if (message.content.startsWith('+ping')) {
-if(!message.channel.guild) return;
-var msg = `${Date.now() - message.createdTimestamp}`
-var api = `${Math.round(client.ping)}`
-if (message.author.bot) return;
-let embed = new Discord.RichEmbed()
-.setAuthor(message.author.username,message.author.avatarURL)
-.setColor('RANDOM')
-.addField('**Time Taken:**',msg + " ms :signal_strength: ")
-message.channel.send({embed:embed});
-}
-});
-
-
-
-
-
     client.on('message', message => {
       var prefix = "ا";
       if(message.content.startsWith(prefix + 'سحب الكل')) {
@@ -123,7 +104,7 @@ var embed = new Discord.RichEmbed()
  message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
 message.guild.members.get(usermentioned).send(embed)
 } else {
-message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `:x:  لم يتم العثور على العضو المطلوب `")
+message.channel.send("لا تستطيع سحب "+ message.mentions.members.first() +" :x:  لم يتم العثور على العضو المطلوب ")
 }
 } else {
  message.channel.send("``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``")
@@ -216,9 +197,7 @@ client.on('message', message => {
   command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
-
-
-
+	
   if (command == "ban") {
   let rank = message.guild.member(message.author).roles.find('name', 'ban');
   if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
@@ -294,9 +273,6 @@ client.on('message', message => {
 });
 
 
-
-
-
 client.on('message', message => {
  if (message.content.includes('اختك')){
                      if(!message.channel.guild) return message.reply ('')
@@ -319,10 +295,6 @@ client.on('message', message => {
     }
 }
 });
-
-
-
-
 
 
 client.on('message', message => {
@@ -411,12 +383,6 @@ client.user.setGame(args , '');
         });
     }
 });
-
-
-
-
-
-
 
 
 client.on('voiceStateUpdate', (oldM, newM) => {
