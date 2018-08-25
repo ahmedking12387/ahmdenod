@@ -196,6 +196,20 @@ client.user.setGame(args , '');
 
 
 client.on('message', message => {
+	let cooldown = new Set();
+         let cdseconds = 5;
+	if(!message.content.startsWith(prefix)) return;
+  if(cooldown.has(message.author.id)){
+    message.delete();
+  return  message.reply("You have to wait 5 seconds between commands.")
+  }
+  if(!message.member.hasPermission("ADMINISTRATOR")){
+    cooldown.add(message.author.id);
+  }
+setTimeout(() => {
+  cooldown.delete(message.author.id)
+}, cdseconds * 1000)
+	
                if(!message.channel.guild) return message.reply('');
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
