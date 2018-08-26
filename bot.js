@@ -82,6 +82,20 @@ const misaka = new Set();
   )
     msg.channel.send(`**تم أرسال الرابط ف الخاص :white_check_mark: **`)
   }
+	    
+ msg.channel.createInvite({
+        thing: true,
+        maxUses: 25,
+        maxAge: 86400,
+  }).then(invite =>
+   msg.author.sendMessage(`
+         <@${msg.author.id}> 
+         **maxUses: 5 **
+         ${invite.url}`)
+  )
+    msg.channel.send(`**تم أرسال الرابط ف الخاص :white_check_mark: **`)
+  }
+	      
     setTimeout(() => {
     },86400000);
     })
