@@ -313,7 +313,7 @@ client.on('voiceStateUpdate', (oldM, newM) => {
   let codes1 = oldM.serverDeaf;
   let codes2 = newM.serverDeaf;
   let ch = oldM.guild.channels.find('name', 'log')
-  if(!ch) return;//ReBeL & Codes
+  if(!ch) return;
     oldM.guild.fetchAuditLogs()
     .then(logs => {
       let user = logs.entries.first().executor.username
@@ -333,7 +333,7 @@ client.on('voiceStateUpdate', (oldM, newM) => {
         .setColor('#36393e')
        .setTimestamp()
        ch.send(embed)
-    }//ReBeL & Codes
+    }
     if(codes1 === false && codes2 === true) {
        let embed = new Discord.RichEmbed()
        .setAuthor(`${newM.user.tag}`, newM.user.avatarURL)
@@ -342,7 +342,7 @@ client.on('voiceStateUpdate', (oldM, newM) => {
         .setColor('#36393e')
        .setTimestamp()
        ch.send(embed)
-    }//ReBeL & Codes
+    }
     if(codes1 === true && codes2 === false) {
        let embed = new Discord.RichEmbed()
        .setAuthor(`${newM.user.tag}`, newM.user.avatarURL)
@@ -354,6 +354,51 @@ client.on('voiceStateUpdate', (oldM, newM) => {
     }
   })
 });
-	
+
+
+
+client.on('message', message => {
+  if(message.author.bot) return;
+
+  if(message.channel.id == '477340568809242624') return;
+
+  let types = [
+    'jpg',
+    'jpeg',
+    'png',
+    'gif',
+    'mp4',
+    'avi',
+    'mkv',
+    'mpeg',
+  ]
+
+  if (message.attachments.size <= 0) {
+    message.delete();
+    message.channel.send(`${message.author}, This channel for pics and vids only!`)
+    .then(msg => {
+      setTimeout(() => {
+        msg.delete();
+      }, 5000)
+  })
+  return;
+}
+
+  if(message.attachments.size >= 1) {
+    let filename = message.attachments.first().filename
+    console.log(filename);
+    if(!types.some( type => filename.endsWith(type) )) {
+      message.delete();
+      message.channel.send(`${message.author}, هذا الروم ل الصور فقط , وشكراً`)
+      .then(msg => {
+        setTimeout(() => {
+          msg.delete();
+        }, 5000)
+      })
+    }
+  }
+
+});
+
 
 client.login(process.env.BOT_TOKEN);
