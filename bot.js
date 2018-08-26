@@ -358,6 +358,7 @@ client.on('voiceStateUpdate', (oldM, newM) => {
 
 
 client.on('message', message => {
+               if(!message.channel.guild) return message.reply('');
   if(message.author.bot) return;
 
 	
