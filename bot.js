@@ -360,9 +360,9 @@ client.on('voiceStateUpdate', (oldM, newM) => {
 client.on('message', message => {
   if(message.author.bot) return;
 
-if (msg.channel.id !== "477340568809242624") return;
- 
-	let types = [
+  if(message.channel.id == '477340568809242624') return;
+
+  let types = [
     'jpg',
     'jpeg',
     'png',
@@ -389,7 +389,7 @@ if (msg.channel.id !== "477340568809242624") return;
     console.log(filename);
     if(!types.some( type => filename.endsWith(type) )) {
       message.delete();
-      message.channel.send(`${message.author}, هذا الروم ل الصور فقط , وشكراً`)
+      message.channel.send(`${message.author}, This channel for pics and vids only!`)
       .then(msg => {
         setTimeout(() => {
           msg.delete();
