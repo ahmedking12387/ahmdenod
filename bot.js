@@ -360,7 +360,11 @@ client.on('voiceStateUpdate', (oldM, newM) => {
 client.on('message', message => {
   if(message.author.bot) return;
 
-  if(message.channel.id == '477340568809242624') return;
+  if(message.channel.id == '475999824525656064') return;
+  if(message.channel.id == '476877117452320778') return;
+  if(message.channel.id == '477358506648010752') return;
+  if(message.channel.id == '477358582397009921') return;
+  if(message.channel.id == '482123244602654721') return;
 
   let types = [
     'jpg',
