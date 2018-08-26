@@ -360,12 +360,18 @@ client.on('voiceStateUpdate', (oldM, newM) => {
 client.on('message', message => {
   if(message.author.bot) return;
 
+	
   if(message.channel.id == '475999824525656064') return;
   if(message.channel.id == '476877117452320778') return;
   if(message.channel.id == '477358506648010752') return;
   if(message.channel.id == '477358582397009921') return;
   if(message.channel.id == '482123244602654721') return;
+  if(message.channel.id == '477093131263672320') return;
+  if(message.channel.id == '477340217188155392') return;
+  if(message.channel.id == '476876831241535488') return;
+  if(message.channel.id == '476876876519047169') return;
 
+	
   let types = [
     'jpg',
     'jpeg',
@@ -379,7 +385,7 @@ client.on('message', message => {
 
   if (message.attachments.size <= 0) {
     message.delete();
-    message.channel.send(`${message.author}, This channel for pics and vids only!`)
+    message.channel.send(`${message.author}, هذا الشات مخصص ل الصور , وشكرا`)
     .then(msg => {
       setTimeout(() => {
         msg.delete();
@@ -393,7 +399,7 @@ client.on('message', message => {
     console.log(filename);
     if(!types.some( type => filename.endsWith(type) )) {
       message.delete();
-      message.channel.send(`${message.author}, This channel for pics and vids only!`)
+      message.channel.send(`${message.author}, هذا الشات مخصص ل الصور , وشكرا`)
       .then(msg => {
         setTimeout(() => {
           msg.delete();
