@@ -373,13 +373,14 @@ client.on('message', message => {
   if(message.channel.id == '476876876519047169') return;
 
 	
-  let types = [
+let types = [
     'jpg',
     'jpeg',
     'png',
     'gif',
-    'mp4',
-    'avi',
+   'bat',
+   'exe',
+   'dam',
     'mkv',
     'mpeg',
   ]
