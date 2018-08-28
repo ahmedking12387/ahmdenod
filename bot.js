@@ -198,14 +198,17 @@ client.user.setGame(args , '');
 
 
 client.on('message', message => {
-               if(!message.channel.guild) return message.reply('');
+         	    var prefix = "ب";
+
+      if(!message.channel.guild) return message.reply('');
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
   let command = message.content.split(" ")[0];
   let args = message.content.split(" ").slice(1);
 	
-  if (command == "بان") {
+		
+ if(message.content.startsWith(prefix + 'ان')) {
   let rank = message.guild.member(message.author).roles.find('name', 'ban');
   if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
       message.delete();
