@@ -91,7 +91,7 @@ const misaka = new Set();
 
 client.on('message', message => {
                if(!message.channel.guild) return message.reply('');
-	const prefix = 'أ'
+	const prefix = 'ا'
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'سحب')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
