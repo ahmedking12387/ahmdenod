@@ -27,6 +27,28 @@ client.on('ready', () => {
 });
 
 
+client.on('message', async message => {
+const prefix = 'ر'
+if(message.author.bot) return;
+if (message.channel.guild) {
+    if(message.content.startsWith(prefix + "ابط")) {
+message.author.send(`mdre`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
+});
+}}})
+
+
+
+
+  client.on('message', async message => {
+if(message.author.bot) return;
+if (message.channel.guild) {
+    if(message.content.startsWith(prefix + "help")) {
+message.author.send(`mdre`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
+});
+}}});
+
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Wind."));
 });
