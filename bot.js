@@ -32,7 +32,7 @@ const prefix = 'ر'
 if(message.author.bot) return;
 if (message.channel.guild) {
     if(message.content.startsWith(prefix + "ابط")) {
-message.author.send(`mdre`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.author.send(`يجب عليك الانتظار 24 ساعه!`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
 message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
 });
 }}})
@@ -44,7 +44,7 @@ message.channel.send("**للأسف , لديك اعدادات خصوصية لات
 if(message.author.bot) return;
 if (message.channel.guild) {
     if(message.content.startsWith(prefix + "help")) {
-message.author.send(`mdre`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.author.send(``).catch(RebeL =>{console.log('`Error`: ' + RebeL);
 message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
 });
 }}});
@@ -99,7 +99,7 @@ const misaka = new Set();
   }).then(invite =>
    msg.author.sendMessage(`
          <@${msg.author.id}> 
-         **هذا الرابط صالح  ل25 مستخدم5 **
+         **هذا الرابط صالح  ل25 مستخدم **
          ${invite.url}`)
   )
     msg.channel.send(`**تم أرسال الرابط ف الخاص :white_check_mark: **`)
