@@ -34,8 +34,8 @@ client.on('guildMemberAdd', member=> {
 
     client.on('message', message => {
                if(!message.channel.guild) return message.reply('');
-      var prefix = "ا";
-      if(message.content.startsWith(prefix + 'سحب الكل')) {
+      var prefix = "س";
+      if(message.content.startsWith(prefix + 'حب الكل')) {
        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
          if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("**لايوجد لدي صلاحية السحب**");
       if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
@@ -198,18 +198,15 @@ client.user.setGame(args , '');
 
 
 client.on('message', message => {
-
+const prefix = 'ب'
                if(!message.channel.guild) return message.reply('');
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
-
   let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
   let args = message.content.split(" ").slice(1);
 	
-  if (command == "ban") {
+  if (command == "ان") {
   let rank = message.guild.member(message.author).roles.find('name', 'ban');
   if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
       message.delete();
