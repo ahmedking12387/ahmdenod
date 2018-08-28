@@ -99,7 +99,7 @@ const misaka = new Set();
   }).then(invite =>
    msg.author.sendMessage(`
          <@${msg.author.id}> 
-         **maxUses: 5 **
+         **هذا الرابط صالح  ل25 مستخدم5 **
          ${invite.url}`)
   )
     msg.channel.send(`**تم أرسال الرابط ف الخاص :white_check_mark: **`)
