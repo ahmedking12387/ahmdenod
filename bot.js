@@ -32,22 +32,12 @@ const prefix = 'ر'
 if(message.author.bot) return;
 if (message.channel.guild) {
     if(message.content.startsWith(prefix + "ابط")) {
-message.author.send(`يجب عليك الانتظار 24 ساعه!`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.author.send(``).catch(RebeL =>{console.log('`Error`: ' + RebeL);
 message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
 });
 }}})
 
 
-
-
-  client.on('message', async message => {
-if(message.author.bot) return;
-if (message.channel.guild) {
-    if(message.content.startsWith(prefix + "help")) {
-message.author.send(``).catch(RebeL =>{console.log('`Error`: ' + RebeL);
-message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
-});
-}}});
 
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Wind."));
@@ -78,6 +68,7 @@ client.on('guildMemberAdd', member=> {
 
 const misaka = new Set();
     client.on('message', async msg => {
+      if(!message.channel.guild) return message.reply('اذلف');
                
   if(msg.content.startsWith("رابط")) {
   if (misaka.has(msg.author.id)) {
