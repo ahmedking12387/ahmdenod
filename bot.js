@@ -68,8 +68,6 @@ client.on('guildMemberAdd', member=> {
 
 const misaka = new Set();
     client.on('message', async msg => {
-      if(!message.channel.guild) return message.reply('اذلف');
-               
   if(msg.content.startsWith("رابط")) {
   if (misaka.has(msg.author.id)) {
     let misakaemb = new Discord.RichEmbed()
