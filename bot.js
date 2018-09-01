@@ -32,7 +32,7 @@ const prefix = 'ر'
 if(message.author.bot) return;
 if (message.channel.guild) {
     if(message.content.startsWith(prefix + "ابط")) {
-message.author.send(``).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.author.send(`.`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
 message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
 });
 }}})
