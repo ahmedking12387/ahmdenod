@@ -324,7 +324,7 @@ client.on('voiceStateUpdate', (oldM, newM) => {
   let rebel2 = newM.serverMute;
   let codes1 = oldM.serverDeaf;
   let codes2 = newM.serverDeaf;
-  let ch = oldM.guild.channels.find('name', 'log')
+  let ch = oldM.guild.channels.find('name', 'log-3')
   if(!ch) return;
     oldM.guild.fetchAuditLogs()
     .then(logs => {
@@ -385,6 +385,8 @@ client.on('message', message => {
   if(message.channel.id == '476876876519047169') return;
   if(message.channel.id == '489881423860203540') return;
   if(message.channel.id == '489881395850641408') return;
+  if(message.channel.id == '490468086672261131') return;
+  if(message.channel.id == '489882490987872266') return;
 
 	
 let types = [
