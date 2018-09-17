@@ -617,7 +617,9 @@ client.on('message', message => {
   if(message.channel.id == '489881395850641408') return;
   if(message.channel.id == '490468086672261131') return;
   if(message.channel.id == '489882490987872266') return;
-  if(message.channel.id == '490942592301662218') return;
+  if(message.channel.id == '490942592301662218') return;  
+  if(message.channel.id == '491218114437185536') return;
+
 
 	
 let types = [
