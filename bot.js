@@ -26,6 +26,9 @@ client.on('ready', () => {
   console.log('')
 });
 
+
+
+
  client.on('message', message => {
     let args = message.content.split(' ').slice(1);
     if(message.content.startsWith(prefix + 'role')) {
@@ -732,6 +735,7 @@ client.on('message', message => {
   if(message.channel.id == '489882490987872266') return;
   if(message.channel.id == '490942592301662218') return;  
   if(message.channel.id == '491218114437185536') return;
+  if(message.channel.id == '492825067701665823') return;
 
 
 	
@@ -840,7 +844,7 @@ client.on('message', function(message) {
     if (message.channel.type === "dm") {
         if (message.author.id === client.user.id) return;
         var stewart = new Discord.RichEmbed()
-            .setColor('RANDOM')
+            .setColor('RANDOM')c
             .setTimestamp()
             .setTitle('``رساله جديده في خاص البوت``')
             .setThumbnail(`${message.author.avatarURL}`)
