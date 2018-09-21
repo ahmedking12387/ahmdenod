@@ -737,7 +737,6 @@ client.on('message', message => {
   if(message.channel.id == '491218114437185536') return;
   if(message.channel.id == '492825067701665823') return;
 
-
 	
 let types = [
     'jpg',
