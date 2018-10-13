@@ -271,53 +271,6 @@ client.user.setGame(args , '');
 });
 
 
-client.on('message', message => {
-         	    var prefix = "ب";
-
-      if(!message.channel.guild) return message.reply('');
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  let args = message.content.split(" ").slice(1);
-	
-		
- if(message.content.startsWith(prefix + 'ان')) {
-  let rank = message.guild.member(message.author).roles.find('name', 'ban');
-  if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
-      message.delete();
-
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  let b5bzlog = client.channels.find("name", "log");
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجى اعطاء البوت رتبه عالية**");
-
-  message.guild.member(user).ban(7, user);
-
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : banembed
-  })
-}
-});
-
-
-
-
-
-
-
-
 
 
 client.on('message', function(message) {
