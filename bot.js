@@ -103,7 +103,7 @@ message.channel.send("**للأسف , لديك اعدادات خصوصية لات
 
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Wind."));
+    member.addRole(member.guild.roles.find("name","Soon"));
 });
 
 
