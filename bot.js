@@ -25,22 +25,6 @@ client.on('ready', () => {
   console.log('')
   console.log('')
 });
-client.on('message' , async (edited) => {
- if (edited.content.startsWith(prefix + 'w')) {
-  const args = edited.content.substring(prefix.length).split(' ');
-
- edited.delete();
-args.shift() 
-let msg = args.join(' ') 
-edited.channel.createWebhook(edited.author.username, edited.author.avatarURL) 
-    .then(wb => {
-        const user = new Discord.WebhookClient(wb.id, wb.token) 
-        user.send(msg); 
-        user.delete() 
-    })
-    .catch(console.error)
- }
-});
 
 client.on("message", message => {
     var args = message.content.split(' ').slice(1);
