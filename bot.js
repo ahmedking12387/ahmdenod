@@ -87,7 +87,7 @@ message.channel.send("**للأسف , لديك اعدادات خصوصية لات
 
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Soon"));
+    member.addRole(member.guild.roles.find("name","Wind."));
 });
 
 
