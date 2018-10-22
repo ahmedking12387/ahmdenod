@@ -31,7 +31,7 @@ client.on('message', message => {
     if(message.content.startsWith(prefix + "r")){
         if(message.author.id !== "279194403564814336") return message.reply(`م تقدر تسوي ريستارت الا اذا كنت اونر البوت`);
         client.destroy();
-        client.login('BOT_TOKEN');
+        client.login(process.env.BOT_TOKEN);
         message.channel.send(`<@${message.author.id}> , restart (: `)
         
     }
